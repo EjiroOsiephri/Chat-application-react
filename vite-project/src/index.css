@@ -4,4 +4,8 @@
   margin: 0;
   box-sizing: border-box;
   font-family: "Noto Sans Mono", monospace;
+  letter-spacing: 1.3px;
+}
+body {
+  background-color: #252329;
 }

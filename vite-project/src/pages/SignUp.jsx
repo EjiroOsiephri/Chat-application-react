@@ -3,6 +3,7 @@ import Logo from "../assets/chat.png";
 import google from "../assets/google.png";
 import { FaEnvelope, FaLock } from "react-icons/fa";
 import { auth, provider } from "../firebase/Firebase";
+import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { Link } from "react-router-dom";
 import Classes from "../sass/signup.module.scss";
 import AuthContext from "../context/Auth-context";
@@ -59,12 +60,10 @@ const SignUp = () => {
   const googleSignIn = () => {
     signInWithPopup(auth, provider)
       .then((result) => {
-        const credential = GoogleAuthProvider.credentialFromResult(result);
         console.log(result);
       })
       .catch((error) => {
-        const credential = GoogleAuthProvider.credentialFromError(error);
-        alert(credential.message);
+        alert(error);
       });
   };
   return (

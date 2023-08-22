@@ -6,6 +6,9 @@
   border: 2px solid #25d366;
   border-radius: 24px;
 }
+img {
+  object-fit: cover;
+}
 .logo-div {
   display: flex;
   justify-content: center;

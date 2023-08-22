@@ -87,10 +87,13 @@
   justify-content: center;
   color: white;
 }
-.login-section > a {
+.login-section > div > a {
   margin-left: 1em;
   text-decoration: none;
   color: #25d366;
+}
+.login-text {
+  color: white;
 }
 @media screen and (max-width: 675px) {
   .Signup-main {

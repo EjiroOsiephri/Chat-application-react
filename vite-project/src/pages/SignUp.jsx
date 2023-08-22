@@ -1,16 +1,18 @@
 import React from "react";
 import Logo from "../assets/chat.png";
 import { FaEnvelope, FaLock } from "react-icons/fa";
+import { Link } from "react-router-dom";
+import Classes from "../sass/signup.module.scss";
 
 const SignUp = () => {
   return (
     <>
-      <main className="Signup-main">
-        <div className="logo-div">
+      <main className={Classes["Signup-main"]}>
+        <div className={Classes["logo-div"]}>
           <img src={Logo} alt="" />
           <h2>EjiroChatHub</h2>
         </div>
-        <div className="signup-text-section">
+        <div className={Classes["signup-text-section"]}>
           <h1>Join thousands of users worldwide</h1>
           <h2>
             Simple, reliable, private messaging and calling for free*, available
@@ -24,18 +26,22 @@ const SignUp = () => {
             matter where they are.
           </h3>
         </div>
-        <section className="form">
+        <section className={Classes["form"]}>
           <form>
-            <div className="input-container">
+            <div className={Classes["input-container"]}>
               <FaEnvelope className="input-icon" />
               <input type="email" placeholder="Enter your email" />
             </div>
-            <div className="input-container">
-              <FaLock className="input-icon" />
+            <div className={Classes["input-container"]}>
+              <FaLock className={Classes["input-icon"]} />
               <input type="password" placeholder="Enter your password" />
             </div>
             <button>Join us now</button>
           </form>
+          <div className={Classes["login-section"]}>
+            <p>already have an account</p>
+            <Link>login</Link>
+          </div>
         </section>
       </main>
     </>

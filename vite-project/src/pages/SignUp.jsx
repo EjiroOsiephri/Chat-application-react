@@ -2,6 +2,7 @@ import React, { useContext, useRef, useState } from "react";
 import Logo from "../assets/chat.png";
 import google from "../assets/google.png";
 import { FaEnvelope, FaLock } from "react-icons/fa";
+import { auth, provider } from "../firebase/Firebase";
 import { Link } from "react-router-dom";
 import Classes from "../sass/signup.module.scss";
 import AuthContext from "../context/Auth-context";
@@ -54,6 +55,18 @@ const SignUp = () => {
       alert(error.message);
     }
   };
+
+  const googleSignIn = () => {
+    signInWithPopup(auth, provider)
+      .then((result) => {
+        const credential = GoogleAuthProvider.credentialFromResult(result);
+        console.log(result);
+      })
+      .catch((error) => {
+        const credential = GoogleAuthProvider.credentialFromError(error);
+        alert(credential.message);
+      });
+  };
   return (
     <>
       <main className={Classes["Signup-main"]}>
@@ -93,7 +106,7 @@ const SignUp = () => {
                 placeholder="Enter your password"
               />
             </div>
-            <div className={Classes["signinwithgoogle"]}>
+            <div onClick={googleSignIn} className={Classes["signinwithgoogle"]}>
               <img src={google} alt="" />
               <p>Sign up with google</p>
             </div>

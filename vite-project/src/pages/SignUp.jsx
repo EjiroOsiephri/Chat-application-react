@@ -54,6 +54,7 @@ const SignUp = () => {
       const data = await res.json();
       authCtx.loginWithEmail(data.idToken);
       authCtx.emailValue(data.email);
+      authCtx.addUsers({ email: data.email, idToken: data.idToken });
     } catch (error) {
       alert(error.message);
     }

@@ -1,20 +1,24 @@
 import React, { useState } from "react";
 
 const AuthContext = React.createContext({
+  users: [],
   token: "",
   isLoggedIn: false,
   emailValue: (token) => {},
   loginWithEmail: (token) => {},
   displayName: "",
+  addUsers: () => {},
 });
 export default AuthContext;
 
 export const AuthProvider = (props) => {
   const initialToken = localStorage.getItem("token");
   const initialEmail = localStorage.getItem("email");
+  const initialUsers = JSON.parse(localStorage.getItem("users")) || [];
 
   const [token, setToken] = useState(initialToken);
   const [email, setEmail] = useState(initialEmail);
+  const [users, setUsers] = useState(initialUsers);
 
   let userIsLoggedIn = !!token;
 
@@ -27,12 +31,19 @@ export const AuthProvider = (props) => {
     localStorage.setItem("email", token);
   };
 
+  const addUsers = (user) => {
+    setUsers((prevUsers) => [...prevUsers, user]);
+    localStorage.setItem("users", JSON.stringify(users));
+  };
+
   const contextValue = {
+    users,
     token,
     isLoggedIn: userIsLoggedIn,
     loginWithEmail,
     email,
     emailValue,
+    addUsers,
   };
 
   return (

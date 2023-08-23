@@ -12,7 +12,6 @@ const SignUp = () => {
   const [showLogin, setShowLogin] = useState(false);
 
   const authCtx = useContext(AuthContext);
-
   console.log(authCtx);
 
   const emailRef = useRef();
@@ -52,11 +51,16 @@ const SignUp = () => {
         },
       });
       const data = await res.json();
+
       authCtx.loginWithEmail(data.idToken);
       authCtx.emailValue(data.email);
-      authCtx.addUsers({ email: data.email, idToken: data.idToken });
+      authCtx.addUsers({
+        email: data.email,
+        idToken: data.idToken,
+        displayName: data.email.split("@")[0],
+      });
     } catch (error) {
-      alert(error.message);
+      console.log(error.message);
     }
   };
 
@@ -64,7 +68,12 @@ const SignUp = () => {
     signInWithPopup(auth, provider)
       .then((result) => {
         authCtx.emailValue(result.user.email);
-        authCtx.loginWithEmail(result._tokenResponse.idToken);
+        authCtx.loginWithEmail(result.user.uid);
+        authCtx.addUsers({
+          email: result.user.email,
+          idToken: result.user.uid,
+          displayName: result.user.displayName,
+        });
       })
       .catch((error) => {
         console.log(error);

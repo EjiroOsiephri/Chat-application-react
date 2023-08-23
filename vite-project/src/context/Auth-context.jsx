@@ -32,8 +32,11 @@ export const AuthProvider = (props) => {
   };
 
   const addUsers = (user) => {
-    setUsers((prevUsers) => [...prevUsers, user]);
-    localStorage.setItem("users", JSON.stringify(users));
+    setUsers((prevUsers) => {
+      const updatedUsers = [...prevUsers, user];
+      localStorage.setItem("users", JSON.stringify(updatedUsers));
+      return updatedUsers;
+    });
   };
 
   const contextValue = {

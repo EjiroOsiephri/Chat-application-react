@@ -1,6 +1,8 @@
 import { useContext } from "react";
 import AuthContext from "../../context/Auth-context";
 import { FaSearch } from "react-icons/fa";
+import Classes from "../../sass/ChannelPage.module.scss";
+
 const ChannelPage = () => {
   const ctx = useContext(AuthContext);
 
@@ -16,13 +18,13 @@ const ChannelPage = () => {
 
   return (
     <>
-      <main>
-        <nav>
+      <main className={Classes["channel-main"]}>
+        <nav className={Classes["channel-navigation"]}>
           <h1>Channels</h1>
           <p>+</p>
         </nav>
-        <div className="search">
-          <FaSearch className="search-logo" />
+        <div className={Classes["search"]}>
+          <FaSearch className={Classes["search-logo"]} />
           <input type="text" placeholder="Search" />
         </div>
         <section className="channelDiv">

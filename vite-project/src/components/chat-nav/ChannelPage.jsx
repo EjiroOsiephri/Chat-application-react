@@ -6,6 +6,8 @@ import Classes from "../../sass/ChannelPage.module.scss";
 const ChannelPage = () => {
   const ctx = useContext(AuthContext);
 
+  console.log(ctx);
+
   function getFirstLetters(name) {
     const words = name.split(" ");
     const firstLetters = words.map((word) => word.charAt(0));
@@ -15,6 +17,12 @@ const ChannelPage = () => {
   const firstLetters = ctx.users.map((user) => {
     return getFirstLetters(user.displayName);
   });
+
+  const displayName = ctx?.email?.split("@")[0];
+  console.log(displayName);
+
+  const lastLetters = ctx?.email?.charAt(0);
+  console.log(lastLetters);
 
   return (
     <>
@@ -27,20 +35,29 @@ const ChannelPage = () => {
           <FaSearch className={Classes["search-logo"]} />
           <input type="text" placeholder="Search" />
         </div>
-        <section className="channelDiv">
-          <div className="welcome">
+        <section className={Classes["channelDiv"]}>
+          <div className={Classes["welcome"]}>
             <h2>W</h2>
             <h1>Welcome channel</h1>
           </div>
           <aside>
             {ctx.users.map((item, index) => (
-              <div key={index}>
+              <div className={Classes["switch-channel"]} key={index}>
                 <p>{firstLetters[index]}</p>
                 <h1>{item.displayName}</h1>
               </div>
             ))}
           </aside>
         </section>
+        <div className={Classes["user-login-info"]}>
+          <div className={Classes["about-user-div"]}>
+            <div>
+              <h3 className={Classes.lastLetters}>{lastLetters}</h3>
+            </div>
+            <h2>{displayName}</h2>
+          </div>
+          <div className={Classes["show-info"]}>{">"}</div>
+        </div>
       </main>
     </>
   );

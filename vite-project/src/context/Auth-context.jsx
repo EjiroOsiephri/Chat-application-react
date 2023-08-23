@@ -3,6 +3,7 @@ import React, { useState } from "react";
 const AuthContext = React.createContext({
   users: [],
   token: "",
+  email: "",
   isLoggedIn: false,
   emailValue: (token) => {},
   loginWithEmail: (token) => {},

@@ -51,9 +51,9 @@ const SignUp = () => {
         },
       });
       const data = await res.json();
-
+      console.log(data);
       authCtx.loginWithEmail(data.idToken);
-      authCtx.emailValue(data.email);
+      authCtx.emailValue(data.email.split("@")[0]);
       authCtx.addUsers({
         email: data.email,
         idToken: data.idToken,
@@ -67,6 +67,7 @@ const SignUp = () => {
   const googleSignIn = () => {
     signInWithPopup(auth, provider)
       .then((result) => {
+        console.log(result);
         authCtx.emailValue(result.user.email);
         authCtx.loginWithEmail(result.user.uid);
         authCtx.addUsers({

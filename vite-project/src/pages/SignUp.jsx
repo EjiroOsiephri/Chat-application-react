@@ -52,7 +52,6 @@ const SignUp = () => {
         },
       });
       const data = await res.json();
-      console.log(data.email);
       authCtx.loginWithEmail(data.idToken);
       authCtx.emailValue(data.email);
     } catch (error) {
@@ -63,12 +62,11 @@ const SignUp = () => {
   const googleSignIn = () => {
     signInWithPopup(auth, provider)
       .then((result) => {
-        console.log(result);
         authCtx.emailValue(result.user.email);
         authCtx.loginWithEmail(result._tokenResponse.idToken);
       })
       .catch((error) => {
-        alert(error);
+        console.log(error);
       });
   };
   return (

@@ -4,7 +4,7 @@ import google from "../assets/google.png";
 import { FaEnvelope, FaLock } from "react-icons/fa";
 import { auth, provider } from "../firebase/Firebase";
 import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Classes from "../sass/signup.module.scss";
 import AuthContext from "../context/Auth-context";
 
@@ -24,6 +24,8 @@ const SignUp = () => {
   const signUpStateHandler = () => {
     setShowLogin(fasle);
   };
+
+  const navigate = useNavigate();
 
   const handleSubmitHandler = async (e) => {
     e.preventDefault();
@@ -50,8 +52,9 @@ const SignUp = () => {
         },
       });
       const data = await res.json();
+      console.log(data.email);
       authCtx.loginWithEmail(data.idToken);
-      console.log(data);
+      authCtx.emailValue(data.email);
     } catch (error) {
       alert(error.message);
     }
@@ -61,6 +64,8 @@ const SignUp = () => {
     signInWithPopup(auth, provider)
       .then((result) => {
         console.log(result);
+        authCtx.emailValue(result.user.email);
+        authCtx.loginWithEmail(result._tokenResponse.idToken);
       })
       .catch((error) => {
         alert(error);

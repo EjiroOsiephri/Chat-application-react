@@ -1,10 +1,8 @@
-import React, { useContext } from "react";
-import { FaSearch } from "react-icons/fa";
+import { useContext } from "react";
 import AuthContext from "../../context/Auth-context";
-
+import { FaSearch } from "react-icons/fa";
 const ChannelPage = () => {
   const ctx = useContext(AuthContext);
-  console.log(ctx);
 
   function getFirstLetters(name) {
     const words = name.split(" ");
@@ -16,7 +14,6 @@ const ChannelPage = () => {
     return getFirstLetters(user.displayName);
   });
 
-  console.log(firstLetters);
   return (
     <>
       <main>
@@ -33,13 +30,14 @@ const ChannelPage = () => {
             <h2>W</h2>
             <h1>Welcome channel</h1>
           </div>
-          {ctx.users.map((item, index) => {
-            return (
+          <aside>
+            {ctx.users.map((item, index) => (
               <div key={index}>
+                <p>{firstLetters[index]}</p>
                 <h1>{item.displayName}</h1>
               </div>
-            );
-          })}
+            ))}
+          </aside>
         </section>
       </main>
     </>

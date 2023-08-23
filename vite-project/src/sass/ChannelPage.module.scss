@@ -111,7 +111,11 @@
   border-radius: 10px;
 }
 .lastLetters {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-size: 25px;
+  margin-top: 0.5rem;
   text-transform: capitalize;
 }
 .about-user-div > h2 {

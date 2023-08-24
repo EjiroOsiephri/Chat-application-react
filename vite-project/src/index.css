@@ -9,3 +9,14 @@
 body {
   background-color: #252329;
 }
+@media screen and (max-width: 675px) {
+  h1,
+  h2,
+  h3,
+  h4,
+  p,
+  span,
+  h5 {
+    white-space: nowrap;
+  }
+}

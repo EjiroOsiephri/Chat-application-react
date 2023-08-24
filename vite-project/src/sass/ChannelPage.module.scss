@@ -1,6 +1,6 @@
 .channel-main {
-  width: 320px;
-  padding: 4px;
+  width: 400px;
+  padding: 20px;
   height: 100vh;
   background-color: rgba(18, 15, 19, 1);
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
@@ -55,6 +55,7 @@
   margin-top: 1.3rem;
   justify-content: space-between;
   cursor: pointer;
+  margin-bottom: 1.3rem;
 }
 .welcome > h2 {
   background-color: white;
@@ -63,18 +64,18 @@
   color: #25d366;
   border-radius: 8px;
   font-weight: 700;
-  margin-bottom: 1.2rem;
 }
 .welcome > h1 {
-  color: rgba(189, 189, 189, 1);
-  align-self: center;
+  display: flex;
+  color: white;
+  margin-left: 0.4em;
+  align-items: center;
   font-size: 18px;
-  margin-right: 0.8rem;
 }
 .switch-channel {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 1.2rem;
+  margin-bottom: 1.6rem;
   cursor: pointer;
 }
 .switch-channel > p {
@@ -87,10 +88,10 @@
   border-radius: 8px;
 }
 .switch-channel > h1 {
-  color: rgba(189, 189, 189, 1);
+  color: white;
   align-self: center;
   font-size: 18px;
-  margin-right: 0.8rem;
+  margin-right: 0.3rem;
 }
 .about-user-div {
   position: absolute;
@@ -122,17 +123,27 @@
   font-size: 18px;
   color: rgba(189, 189, 189, 1);
 }
-.welcome:hover {
-  background-color: #25d366;
-  padding: 0.2em;
-  color: white;
-  border-radius: 8px;
-}
-.switch-channel:hover {
-  background-color: #25d366;
-  padding: 0.5em;
-  color: white;
-  border-radius: 8px;
-}
+
 @media screen and (max-width: 678px) {
+  .channel-main {
+    width: 100vw;
+  }
+}
+@media screen and (max-width: 878px) {
+  .welcome > h1 {
+    font-size: 15px;
+  }
+  .switch-channel > h1 {
+    font-size: 15px;
+  }
+  .about-user-div > h2 {
+    font-size: 14px;
+  }
+  .about-user-div > div {
+    width: 30px;
+    height: 30px;
+  }
+  .lastLetters {
+    font-size: 12px;
+  }
 }

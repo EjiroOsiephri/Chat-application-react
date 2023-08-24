@@ -1,0 +1,8 @@
+.channel-home {
+  display: flex;
+}
+@media screen and (max-width: 678px) {
+  .channel-home > div {
+    display: none;
+  }
+}

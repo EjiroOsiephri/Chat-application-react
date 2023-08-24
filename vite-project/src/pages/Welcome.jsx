@@ -14,9 +14,10 @@ const Welcome = () => {
 
   function addToCommentArray() {
     const commentValue = commentInputRef?.current?.value;
+    const displayName = ctx?.email?.split("@")[0];
     dispatch(
       channelActions.addTextToWelcomeChannel({
-        name: ctx.email,
+        name: displayName,
         comment: commentValue,
       })
     );

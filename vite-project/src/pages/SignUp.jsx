@@ -10,9 +10,9 @@ import AuthContext from "../context/Auth-context";
 
 const SignUp = () => {
   const [showLogin, setShowLogin] = useState(false);
+  const [error, setError] = useState(false);
 
   const authCtx = useContext(AuthContext);
-  console.log(authCtx);
 
   const emailRef = useRef();
   const passwordRef = useRef();
@@ -30,6 +30,10 @@ const SignUp = () => {
     e.preventDefault();
     const emailValue = emailRef.current?.value;
     const passwordValue = passwordRef.current?.value;
+
+    if (passwordValue.length < 6) {
+      setError(true);
+    }
     let url;
     if (showLogin) {
       url =
@@ -51,7 +55,6 @@ const SignUp = () => {
         },
       });
       const data = await res.json();
-      console.log(data);
       authCtx.loginWithEmail(data.idToken);
       authCtx.emailValue(data.email.split("@")[0]);
       authCtx.addUsers({
@@ -59,6 +62,7 @@ const SignUp = () => {
         idToken: data.idToken,
         displayName: data.email.split("@")[0],
       });
+      navigate("/channel");
     } catch (error) {
       console.log(error.message);
     }
@@ -75,6 +79,7 @@ const SignUp = () => {
           idToken: result.user.uid,
           displayName: result.user.displayName,
         });
+        navigate("/channel");
       })
       .catch((error) => {
         console.log(error);
@@ -118,6 +123,9 @@ const SignUp = () => {
                 type="password"
                 placeholder="Enter your password"
               />
+              {error && (
+                <p style={{ color: "red" }}>Password must be greater than 6</p>
+              )}
             </div>
             <div onClick={googleSignIn} className={Classes["signinwithgoogle"]}>
               <img src={google} alt="" />

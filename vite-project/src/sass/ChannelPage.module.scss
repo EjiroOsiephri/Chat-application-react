@@ -122,5 +122,17 @@
   font-size: 18px;
   color: rgba(189, 189, 189, 1);
 }
+.welcome:hover {
+  background-color: #25d366;
+  padding: 0.2em;
+  color: white;
+  border-radius: 8px;
+}
+.switch-channel:hover {
+  background-color: #25d366;
+  padding: 0.5em;
+  color: white;
+  border-radius: 8px;
+}
 @media screen and (max-width: 678px) {
 }

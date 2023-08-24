@@ -6,8 +6,6 @@ import Classes from "../../sass/ChannelPage.module.scss";
 const ChannelPage = () => {
   const ctx = useContext(AuthContext);
 
-  console.log(ctx);
-
   function getFirstLetters(name) {
     const words = name.split(" ");
     const firstLetters = words.map((word) => word.charAt(0));
@@ -19,10 +17,8 @@ const ChannelPage = () => {
   });
 
   const displayName = ctx?.email?.split("@")[0];
-  console.log(displayName);
 
   const lastLetters = ctx?.email?.charAt(0);
-  console.log(lastLetters);
 
   return (
     <>

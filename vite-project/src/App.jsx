@@ -10,8 +10,6 @@ function App() {
 
   const [userChannel, setUserChannel] = useState(null);
 
-  console.log(userChannel);
-
   const contextValue = {
     setUserChannel,
     userChannel,

@@ -2,8 +2,9 @@ import { useContext } from "react";
 import AuthContext from "../../context/Auth-context";
 import { FaSearch } from "react-icons/fa";
 import Classes from "../../sass/ChannelPage.module.scss";
+import AppWideContext from "../../context/AppWideContext";
 
-const ChannelPage = () => {
+const ChannelPage = (props) => {
   const ctx = useContext(AuthContext);
 
   function getFirstLetters(name) {
@@ -20,6 +21,17 @@ const ChannelPage = () => {
 
   const lastLetters = ctx?.email?.charAt(0);
 
+  const appWideContext = useContext(AppWideContext);
+
+  const setUserChannel = (item) => {
+    appWideContext.setUserChannel(item);
+    props.setWelcome(false);
+  };
+
+  const welcomePageHandler = () => {
+    props.setWelcome(true);
+  };
+
   return (
     <>
       <main className={Classes["channel-main"]}>
@@ -32,13 +44,19 @@ const ChannelPage = () => {
           <input type="text" placeholder="Search" />
         </div>
         <section className={Classes["channelDiv"]}>
-          <div className={Classes["welcome"]}>
+          <div onClick={welcomePageHandler} className={Classes["welcome"]}>
             <h2>W</h2>
             <h1>Welcome channel</h1>
           </div>
           <aside>
             {ctx.users.map((item, index) => (
-              <div className={Classes["switch-channel"]} key={index}>
+              <div
+                onClick={() => {
+                  setUserChannel(item);
+                }}
+                className={Classes["switch-channel"]}
+                key={index}
+              >
                 <p>{firstLetters[index]}</p>
                 <h1>{item.displayName}</h1>
               </div>

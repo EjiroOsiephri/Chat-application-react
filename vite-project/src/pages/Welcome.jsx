@@ -3,14 +3,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { channelActions } from "../store/ChannelSlice";
 import AuthContext from "../context/Auth-context";
 
-const Welcome = () => {
+const Welcome = (props) => {
   const state = useSelector((state) => state.channel.welcomeChannelHistory);
 
   const commentInputRef = useRef();
   const dispatch = useDispatch();
   const ctx = useContext(AuthContext);
-
-  console.log(ctx);
 
   function addToCommentArray() {
     const commentValue = commentInputRef?.current?.value;

@@ -2,6 +2,7 @@ import React, { useContext, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { channelActions } from "../store/ChannelSlice";
 import AuthContext from "../context/Auth-context";
+import Classes from "../sass/Welcome.module.scss";
 
 const Welcome = (props) => {
   const state = useSelector((state) => state.channel.welcomeChannelHistory);
@@ -24,7 +25,7 @@ const Welcome = (props) => {
   return (
     <>
       <main>
-        <header>Welcome Channel</header>
+        <header className={Classes["welcome-header"]}>Welcome Channel</header>
         <section>
           {state?.map((item, index) => {
             return (

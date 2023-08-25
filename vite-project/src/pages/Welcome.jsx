@@ -7,6 +7,8 @@ import { BsPersonCircle } from "react-icons/bs";
 
 const Welcome = (props) => {
   const state = useSelector((state) => state.channel.welcomeChannelHistory);
+  const date = new Date();
+  const currentDate = date.toDateString();
 
   const commentInputRef = useRef();
   const dispatch = useDispatch();
@@ -21,9 +23,8 @@ const Welcome = (props) => {
         comment: commentValue,
       })
     );
+    commentInputRef.current.value = "";
   }
-  const date = new Date();
-  const currentDate = date.toDateString();
 
   return (
     <>
@@ -47,8 +48,12 @@ const Welcome = (props) => {
             );
           })}
         </section>
-        <div className="input-search">
-          <input type="text" ref={commentInputRef} />
+        <div className={Classes["input-search"]}>
+          <input
+            type="text"
+            placeholder="Type a message here"
+            ref={commentInputRef}
+          />
           <button onClick={addToCommentArray}>send</button>
         </div>
       </main>

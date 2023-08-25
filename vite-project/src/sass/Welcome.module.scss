@@ -17,6 +17,7 @@
 .welcome-comments {
   display: flex;
   margin-top: 2em;
+  margin-left: 1em;
 }
 .welcome-name-div {
   display: grid;
@@ -46,6 +47,27 @@
   font-size: 18px;
   color: rgba(224, 224, 224, 1);
   margin-top: 0.8em;
+}
+.input-search {
+  display: flex;
+  justify-content: center;
+}
+.input-search > input {
+  width: 95%;
+  border-radius: 8px;
+  background: rgba(60, 57, 63, 1);
+  border: none;
+  height: 53px;
+  padding-left: 1em;
+  margin-top: 2.7em;
+  bottom: 10px;
+  color: white;
+  display: flex;
+  gap: 1em;
+  align-items: center;
+  padding: 1em;
+  position: sticky;
+  height: max-content;
 }
 @media screen and (max-width: 678px) {
   .welcome-name-div > h1 {

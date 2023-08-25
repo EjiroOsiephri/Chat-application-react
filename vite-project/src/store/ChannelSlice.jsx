@@ -9,19 +9,19 @@ const Dummy_Data = [
   },
   {
     img: "",
-    name: "Xander Neal",
+    name: "Micheal Schiewesteiger",
     comment:
       "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vero doloremque labore quam!",
   },
   {
     img: "",
-    name: "Xander Neal",
+    name: "Neille Francis",
     comment:
       "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vero doloremque labore quam!",
   },
   {
     img: "",
-    name: "Xander Neal",
+    name: "Leroy sane",
     comment:
       "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vero doloremque labore quam!",
   },

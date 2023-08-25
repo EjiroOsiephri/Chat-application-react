@@ -51,7 +51,6 @@ const UserChannelPage = () => {
         }),
       }
     );
-    console.log(response);
   };
 
   return (

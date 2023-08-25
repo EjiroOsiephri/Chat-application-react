@@ -3,12 +3,15 @@ import Logo from "../assets/chat.png";
 import google from "../assets/google.png";
 import { FaEnvelope, FaLock } from "react-icons/fa";
 import { auth, provider } from "../firebase/Firebase";
-import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import { signInWithPopup } from "firebase/auth";
 import { Link, useNavigate } from "react-router-dom";
 import Classes from "../sass/signup.module.scss";
 import AuthContext from "../context/Auth-context";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const SignUp = () => {
+  const notify = () => toast("enter valid password");
   const [showLogin, setShowLogin] = useState(false);
   const [error, setError] = useState(false);
 
@@ -21,7 +24,7 @@ const SignUp = () => {
     setShowLogin(true);
   };
   const signUpStateHandler = () => {
-    setShowLogin(fasle);
+    setShowLogin(false);
   };
 
   const navigate = useNavigate();
@@ -33,6 +36,8 @@ const SignUp = () => {
 
     if (passwordValue.length < 6) {
       setError(true);
+      notify();
+      return;
     }
     let url;
     if (showLogin) {
@@ -64,7 +69,7 @@ const SignUp = () => {
       });
       navigate("/channel");
     } catch (error) {
-      console.log(error.message);
+      console.log(error);
     }
   };
 
@@ -87,6 +92,7 @@ const SignUp = () => {
   };
   return (
     <>
+      <ToastContainer />
       <main className={Classes["Signup-main"]}>
         <div className={Classes["logo-div"]}>
           <img src={Logo} alt="" />

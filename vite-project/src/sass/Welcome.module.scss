@@ -63,11 +63,23 @@
   bottom: 10px;
   color: white;
   display: flex;
-  gap: 1em;
-  align-items: center;
   padding: 1em;
   position: sticky;
-  height: max-content;
+}
+.send-channel-div {
+  position: relative;
+  top: 40px;
+  right: 45px;
+  width: 39.33667755126953px;
+  height: 39.33667755126953px;
+  border-radius: 8px;
+  background-color: rgba(47, 128, 237, 1);
+}
+.send-channel-message {
+  display: flex;
+  margin-inline: auto;
+  margin-top: 12px;
+  color: white;
 }
 @media screen and (max-width: 678px) {
   .welcome-name-div > h1 {

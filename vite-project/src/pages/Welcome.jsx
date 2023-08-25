@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { channelActions } from "../store/ChannelSlice";
 import AuthContext from "../context/Auth-context";
 import Classes from "../sass/Welcome.module.scss";
-import { BsPersonCircle } from "react-icons/bs";
+import { BsPersonCircle, BsSend } from "react-icons/bs";
 
 const Welcome = (props) => {
   const state = useSelector((state) => state.channel.welcomeChannelHistory);
@@ -54,7 +54,12 @@ const Welcome = (props) => {
             placeholder="Type a message here"
             ref={commentInputRef}
           />
-          <button onClick={addToCommentArray}>send</button>
+          <div
+            onClick={addToCommentArray}
+            className={Classes["send-channel-div"]}
+          >
+            <BsSend className={Classes["send-channel-message"]} />
+          </div>
         </div>
       </main>
     </>

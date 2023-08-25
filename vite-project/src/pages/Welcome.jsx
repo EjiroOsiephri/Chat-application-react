@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { channelActions } from "../store/ChannelSlice";
 import AuthContext from "../context/Auth-context";
 import Classes from "../sass/Welcome.module.scss";
+import { BsPersonCircle } from "react-icons/bs";
 
 const Welcome = (props) => {
   const state = useSelector((state) => state.channel.welcomeChannelHistory);
@@ -21,18 +22,25 @@ const Welcome = (props) => {
       })
     );
   }
+  const date = new Date();
+  const currentDate = date.toDateString();
 
   return (
     <>
-      <main>
+      <main className={Classes["welcome-channel-main"]}>
         <header className={Classes["welcome-header"]}>Welcome Channel</header>
         <section>
           {state?.map((item, index) => {
             return (
-              <aside key={index}>
-                <img src="" alt="" />
-                <div>
-                  <p>{item.name}</p>
+              <aside className={Classes["welcome-comments"]} key={index}>
+                <BsPersonCircle
+                  className={Classes["person-icon"]}
+                ></BsPersonCircle>
+                <div className={Classes["welcome-name-div"]}>
+                  <div>
+                    <p>{item.name}</p>
+                    <p>{currentDate}</p>
+                  </div>
                   <h1>{item.comment}</h1>
                 </div>
               </aside>

@@ -1,3 +1,6 @@
+.welcome-channel-main {
+  overflow-y: auto;
+}
 .welcome-header {
   width: 100%;
   height: 59.49px;
@@ -10,4 +13,47 @@
   font-weight: 700;
   align-items: center;
   padding-left: 2em;
+}
+.welcome-comments {
+  display: flex;
+  margin-top: 2em;
+}
+.welcome-name-div {
+  display: grid;
+  margin-left: 0.6em;
+}
+.welcome-name-div > div {
+  display: flex;
+}
+.welcome-name-div > div > p:first-child {
+  color: #25d366;
+  font-size: 18px;
+  font-weight: 700;
+  margin-right: 0.6em;
+}
+.welcome-name-div > div > p:last-child {
+  font-size: 14px;
+  color: rgba(130, 130, 130, 1);
+  line-height: 20px;
+  margin-top: 0.18em;
+}
+.person-icon {
+  align-self: start;
+  font-size: 1.8rem;
+  color: gray;
+}
+.welcome-name-div > h1 {
+  font-size: 18px;
+  color: rgba(224, 224, 224, 1);
+  margin-top: 0.8em;
+}
+@media screen and (max-width: 678px) {
+  .welcome-name-div > h1 {
+    font-size: 15px;
+  }
+  .person-icon {
+    display: flex;
+    align-items: start;
+    font-size: 80px;
+  }
 }

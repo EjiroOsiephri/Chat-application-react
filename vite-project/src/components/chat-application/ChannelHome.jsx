@@ -10,7 +10,9 @@ const ChannelHome = () => {
   return (
     <>
       <main className="channel-home">
-        <ChannelPage setWelcome={setWelcome} />
+        <div>
+          <ChannelPage setWelcome={setWelcome} />
+        </div>
         {welcome ? <Welcome setWelcome={setWelcome} /> : <UserChannelPage />}
       </main>
     </>

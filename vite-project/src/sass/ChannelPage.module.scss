@@ -1,5 +1,5 @@
 .channel-main {
-  width: 400px;
+  width: 340px;
   padding: 20px;
   height: 100vh;
   background-color: rgba(18, 15, 19, 1);
@@ -92,6 +92,8 @@
   align-self: center;
   font-size: 18px;
   margin-right: 0.3rem;
+  white-space: nowrap;
+  margin-left: 0.5rem;
 }
 .about-user-div {
   position: absolute;

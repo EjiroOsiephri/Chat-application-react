@@ -1,3 +1,51 @@
+.userchannelpage-main {
+  flex: 1;
+}
 .welcome-header {
   display: flex;
+  width: 100%;
+  height: 59.49px;
+  background-color: rgba(37, 35, 41, 1);
+  border-radius: 8px;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  color: white;
+  display: flex;
+  font-size: 18px;
+  font-weight: 700;
+  align-items: center;
+  padding-left: 2em;
+}
+.input-search {
+  display: flex;
+  justify-content: center;
+}
+.input-search > input {
+  position: sticky;
+  width: 95%;
+  border-radius: 8px;
+  background: rgba(60, 57, 63, 1);
+  border: none;
+  height: 53px;
+  padding-left: 1em;
+  margin-top: 2.7em;
+  color: white;
+  display: flex;
+  padding: 1em;
+  align-items: center;
+  margin-left: 2.5em;
+}
+.send-channel-div {
+  position: relative;
+  top: 40px;
+  right: 45px;
+  width: 39.33667755126953px;
+  height: 39.33667755126953px;
+  border-radius: 8px;
+  background-color: rgba(47, 128, 237, 1);
+}
+.send-channel-message {
+  display: flex;
+  margin-inline: auto;
+  margin-top: 12px;
+  color: white;
 }

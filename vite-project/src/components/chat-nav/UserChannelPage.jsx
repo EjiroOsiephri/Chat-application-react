@@ -51,7 +51,7 @@ const UserChannelPage = () => {
 
   return (
     <>
-      <main>
+      <main className={Classes["userchannelpage-main"]}>
         <header className={Classes["welcome-header"]}>
           <p>{ctx.userChannel.displayName}</p>
         </header>
@@ -59,14 +59,24 @@ const UserChannelPage = () => {
           {channelInputValueArray?.map((item, index) => {
             return (
               <div key={index}>
+                <h4>{ctx.userChannel.displayName}</h4>
                 <h2>{item.comment}</h2>
               </div>
             );
           })}
         </section>
-        <div className="input-useChannel-section">
-          <input ref={userChannelInputRef} type="text" />
-          <button onClick={sendData}>send</button>
+        <div className={Classes["input-search"]}>
+          <input
+            placeholder="Type a message here"
+            ref={userChannelInputRef}
+            type="text"
+          />
+          <div className={Classes["send-channel-div"]}>
+            <BsSend
+              onClick={sendData}
+              className={Classes["send-channel-message"]}
+            ></BsSend>
+          </div>
         </div>
       </main>
     </>

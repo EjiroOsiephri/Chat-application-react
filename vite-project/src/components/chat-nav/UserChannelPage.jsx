@@ -1,10 +1,6 @@
-import React, {
-  useContext,
-  useState,
-  useEffect,
-  useRef,
-  useCallback,
-} from "react";
+import React, { useContext, useState, useEffect, useRef } from "react";
+import Classes from "../../sass/UserChannelPage.module.scss";
+import { BsPersonCircle, BsSend } from "react-icons/bs";
 
 import AppWideContext from "../../context/AppWideContext";
 
@@ -56,8 +52,8 @@ const UserChannelPage = () => {
   return (
     <>
       <main>
-        <header>
-          <h1>{ctx.userChannel.displayName}</h1>
+        <header className={Classes["welcome-header"]}>
+          <p>{ctx.userChannel.displayName}</p>
         </header>
         <section>
           {channelInputValueArray?.map((item, index) => {

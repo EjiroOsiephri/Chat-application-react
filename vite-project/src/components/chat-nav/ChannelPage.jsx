@@ -13,6 +13,12 @@ const ChannelPage = (props) => {
     return firstLetters.join("");
   }
 
+  const uniqueDisplayNames = Array.from(
+    new Set(ctx.users.map((user) => user.displayName))
+  );
+
+  console.log(uniqueDisplayNames);
+
   const firstLetters = ctx.users.map((user) => {
     return getFirstLetters(user.displayName);
   });

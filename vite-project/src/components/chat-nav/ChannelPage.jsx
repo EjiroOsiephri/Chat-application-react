@@ -3,6 +3,7 @@ import AuthContext from "../../context/Auth-context";
 import { FaSearch } from "react-icons/fa";
 import Classes from "../../sass/ChannelPage.module.scss";
 import AppWideContext from "../../context/AppWideContext";
+import { BsPersonCircle } from "react-icons/bs";
 
 const ChannelPage = (props) => {
   const ctx = useContext(AuthContext);
@@ -50,7 +51,8 @@ const ChannelPage = (props) => {
     if (
       !unique.some(
         (existingUser) => existingUser.displayName === user.displayName
-      )
+      ) &&
+      user.displayName !== displayName
     ) {
       unique.push(user);
     }
@@ -110,7 +112,9 @@ const ChannelPage = (props) => {
                 className={Classes["switch-channel"]}
                 key={index}
               >
-                <p>{firstLetters[index]}</p>
+                <BsPersonCircle
+                  className={Classes["person-icon"]}
+                ></BsPersonCircle>
                 <h1>{item.displayName}</h1>
               </div>
             ))}

@@ -58,3 +58,25 @@
   margin-top: 12px;
   color: white;
 }
+
+.other-message {
+  position: relative;
+  margin: 10px 0;
+  padding: 15px;
+  background-color: #25d366;
+  color: white;
+  border-radius: 5px;
+  align-self: flex-end;
+  max-width: 70%;
+}
+
+.user-message {
+  position: relative;
+  margin: 10px 0;
+  padding: 15px;
+  background-color: gray;
+  color: white;
+  border-radius: 5px;
+  align-self: flex-start;
+  max-width: 70%;
+}

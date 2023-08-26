@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import AuthContext from "../../context/Auth-context";
 import { FaSearch } from "react-icons/fa";
 import Classes from "../../sass/ChannelPage.module.scss";
@@ -17,9 +17,36 @@ const ChannelPage = (props) => {
     return getFirstLetters(user.displayName);
   });
 
+  const [uniqueUser, setUniqueUsers] = useState(null);
+
+  const getData = async () => {
+    try {
+      const res = await fetch(
+        `https://chat-application-bb1d8-default-rtdb.firebaseio.com/users.json`
+      );
+      const data = await res.json();
+
+      const uniqueUserArray = [];
+      for (const key in data) {
+        uniqueUserArray.push({
+          id: key,
+          displayName: data[key].displayName,
+        });
+      }
+
+      setUniqueUsers(uniqueUserArray);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    getData();
+  }, []);
+
   const displayName = ctx?.email?.split("@")[0];
 
-  const uniqueUsers = ctx.users.reduce((unique, user) => {
+  const uniqueUsers = uniqueUser?.reduce((unique, user) => {
     if (
       !unique.some(
         (existingUser) => existingUser.displayName === user.displayName
@@ -43,6 +70,21 @@ const ChannelPage = (props) => {
     props.setWelcome(true);
   };
 
+  const sendData = async () => {
+    const response = await fetch(
+      `https://chat-application-bb1d8-default-rtdb.firebaseio.com/users.json`,
+      {
+        method: "POST",
+        body: JSON.stringify({
+          displayName: displayName,
+        }),
+      }
+    );
+  };
+  useEffect(() => {
+    sendData();
+  }, []);
+
   return (
     <>
       <main className={Classes["channel-main"]}>
@@ -60,7 +102,7 @@ const ChannelPage = (props) => {
             <h1>Welcome channel</h1>
           </div>
           <aside>
-            {uniqueUsers.map((item, index) => (
+            {uniqueUsers?.map((item, index) => (
               <div
                 onClick={() => {
                   setUserChannel(item);

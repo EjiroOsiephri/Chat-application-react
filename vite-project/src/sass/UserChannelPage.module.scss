@@ -1,4 +1,7 @@
 .userchannelpage-main {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
   flex: 1;
 }
 .welcome-header {
@@ -30,10 +33,16 @@
   margin-top: 2.7em;
   color: white;
   display: flex;
+  bottom: 0;
   padding: 1em;
   align-items: center;
   margin-left: 2.5em;
 }
+.section-scroll {
+  flex: 1;
+  overflow-y: auto;
+}
+
 .send-channel-div {
   position: relative;
   top: 40px;

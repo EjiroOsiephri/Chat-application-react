@@ -1,5 +1,6 @@
 .welcome-channel-main {
   overflow-y: auto;
+  height: 100vh;
 }
 .welcome-header {
   width: 100%;
@@ -63,6 +64,7 @@
   margin-top: 2.7em;
   color: white;
   display: flex;
+  bottom: 0;
   padding: 1em;
   align-items: center;
   margin-left: 2.5em;

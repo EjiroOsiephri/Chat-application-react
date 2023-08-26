@@ -26,6 +26,7 @@ const UserChannelPage = () => {
       for (const key in data) {
         channelInputValueArray.push({
           id: key,
+          displayName: data[key].displayName,
           comment: data[key].enteredText,
         });
       }
@@ -47,23 +48,24 @@ const UserChannelPage = () => {
         method: "POST",
         body: JSON.stringify({
           enteredText,
+          displayName: AuthCtx?.email?.split("@")[0],
         }),
       }
     );
     userChannelInputRef.current.value = "";
   };
-  const displayName = AuthCtx?.email?.split("@")[0];
+
   return (
     <>
       <main className={Classes["userchannelpage-main"]}>
         <header className={Classes["welcome-header"]}>
           <p>{ctx.userChannel.displayName}</p>
         </header>
-        <section>
+        <section className={Classes["section-scroll"]}>
           {channelInputValueArray?.map((item, index) => {
             return (
-              <div key={index}>
-                <h4>{displayName}</h4>
+              <div className={Classes["user-channel-text"]} key={index}>
+                <h4>{item.displayName}</h4>
                 <h2>{item.comment}</h2>
               </div>
             );

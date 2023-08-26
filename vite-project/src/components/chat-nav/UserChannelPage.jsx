@@ -29,7 +29,12 @@ const UserChannelPage = () => {
 
       for (const key in data) {
         const message = data[key];
-        if (message.sender === displayName || message.recipient === displayName)
+        if (
+          (message.sender === displayName &&
+            message.recipient === ctx.userChannel.displayName) ||
+          (message.sender === ctx.userChannel.displayName &&
+            message.recipient === displayName)
+        )
           channelInputValueArray.push({
             id: key,
             sender: message.sender,

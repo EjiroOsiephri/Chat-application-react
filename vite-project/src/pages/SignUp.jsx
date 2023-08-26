@@ -76,7 +76,6 @@ const SignUp = () => {
   const googleSignIn = () => {
     signInWithPopup(auth, provider)
       .then((result) => {
-        console.log(result);
         authCtx.emailValue(result.user.email);
         authCtx.loginWithEmail(result.user.uid);
         authCtx.addUsers({

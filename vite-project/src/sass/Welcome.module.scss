@@ -53,6 +53,7 @@
   justify-content: center;
 }
 .input-search > input {
+  position: sticky;
   width: 95%;
   border-radius: 8px;
   background: rgba(60, 57, 63, 1);
@@ -60,13 +61,11 @@
   height: 53px;
   padding-left: 1em;
   margin-top: 2.7em;
-  bottom: 10px;
   color: white;
   display: flex;
   padding: 1em;
   align-items: center;
   margin-left: 2.5em;
-  position: sticky;
 }
 .send-channel-div {
   position: relative;

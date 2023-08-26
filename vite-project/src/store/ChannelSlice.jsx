@@ -4,26 +4,18 @@ const Dummy_Data = [
   {
     img: "",
     name: "Xander Neal",
-    comment:
-      "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vero doloremque labore quam!",
+    comment: "Welcome to the group! We're excited to have you as a member.",
   },
   {
     img: "",
     name: "Micheal Schiewesteiger",
     comment:
-      "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vero doloremque labore quam!",
+      "You can message users privately if you want to, just click on the name and you're good",
   },
   {
     img: "",
-    name: "Neille Francis",
-    comment:
-      "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vero doloremque labore quam!",
-  },
-  {
-    img: "",
-    name: "Leroy sane",
-    comment:
-      "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vero doloremque labore quam!",
+    name: "James Smith",
+    comment: "Welcome!!!",
   },
 ];
 

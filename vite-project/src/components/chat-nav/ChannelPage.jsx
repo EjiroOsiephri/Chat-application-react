@@ -13,17 +13,22 @@ const ChannelPage = (props) => {
     return firstLetters.join("");
   }
 
-  const uniqueDisplayNames = Array.from(
-    new Set(ctx.users.map((user) => user.displayName))
-  );
-
-  console.log(uniqueDisplayNames);
-
   const firstLetters = ctx.users.map((user) => {
     return getFirstLetters(user.displayName);
   });
 
   const displayName = ctx?.email?.split("@")[0];
+
+  const uniqueUsers = ctx.users.reduce((unique, user) => {
+    if (
+      !unique.some(
+        (existingUser) => existingUser.displayName === user.displayName
+      )
+    ) {
+      unique.push(user);
+    }
+    return unique;
+  }, []);
 
   const lastLetters = ctx?.email?.charAt(0);
 
@@ -55,7 +60,7 @@ const ChannelPage = (props) => {
             <h1>Welcome channel</h1>
           </div>
           <aside>
-            {ctx.users.map((item, index) => (
+            {uniqueUsers.map((item, index) => (
               <div
                 onClick={() => {
                   setUserChannel(item);

@@ -3,9 +3,12 @@ import Classes from "../../sass/UserChannelPage.module.scss";
 import { BsPersonCircle, BsSend } from "react-icons/bs";
 
 import AppWideContext from "../../context/AppWideContext";
+import AuthContext from "../../context/Auth-context";
 
 const UserChannelPage = () => {
   const [channelInputValueArray, setChannelInputValueArray] = useState(null);
+
+  const AuthCtx = useContext(AuthContext);
 
   const ctx = useContext(AppWideContext);
 
@@ -47,8 +50,9 @@ const UserChannelPage = () => {
         }),
       }
     );
+    userChannelInputRef.current.value = "";
   };
-
+  const displayName = AuthCtx?.email?.split("@")[0];
   return (
     <>
       <main className={Classes["userchannelpage-main"]}>
@@ -59,7 +63,7 @@ const UserChannelPage = () => {
           {channelInputValueArray?.map((item, index) => {
             return (
               <div key={index}>
-                <h4>{ctx.userChannel.displayName}</h4>
+                <h4>{displayName}</h4>
                 <h2>{item.comment}</h2>
               </div>
             );

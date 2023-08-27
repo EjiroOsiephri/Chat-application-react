@@ -8,39 +8,38 @@ import AuthContext from "../../context/Auth-context";
 const UserChannelPage = () => {
   const [channelInputValueArray, setChannelInputValueArray] = useState(null);
 
-  const textEntered = localStorage.getItem("enteredText");
-
   const AuthCtx = useContext(AuthContext);
 
   const ctx = useContext(AppWideContext);
 
   const userChannelInputRef = useRef();
 
-  let displayName = AuthCtx?.email?.split("@")[0];
-
   const getData = async () => {
     try {
-      const res = await fetch(
-        `https://chat-application-bb1d8-default-rtdb.firebaseio.com/${ctx.userChannel.displayName}.json`
+      const chatIdentifier1 = `${displayName}_${ctx.userChannel.displayName}`;
+      const chatIdentifier2 = `${ctx.userChannel.displayName}_${displayName}`;
+
+      const res1 = await fetch(
+        `https://chat-application-bb1d8-default-rtdb.firebaseio.com/messages/${chatIdentifier1}.json`
       );
-      const data = await res.json();
+      const res2 = await fetch(
+        `https://chat-application-bb1d8-default-rtdb.firebaseio.com/messages/${chatIdentifier2}.json`
+      );
+
+      const data1 = await res1.json();
+      const data2 = await res2.json();
+
+      const combinedData = { ...data1, ...data2 };
 
       const channelInputValueArray = [];
 
-      for (const key in data) {
-        const message = data[key];
-        if (
-          (message.sender === displayName &&
-            message.recipient === ctx.userChannel.displayName) ||
-          (message.sender === ctx.userChannel.displayName &&
-            message.recipient === displayName)
-        )
-          channelInputValueArray.push({
-            id: key,
-            sender: message.sender,
-            recipient: message.recipient,
-            comment: message.enteredText,
-          });
+      for (const key in combinedData) {
+        channelInputValueArray.unshift({
+          id: key,
+          sender: combinedData[key].sender,
+          recipient: combinedData[key].recipient,
+          comment: combinedData[key].enteredText,
+        });
       }
       setChannelInputValueArray(channelInputValueArray);
     } catch (error) {
@@ -52,16 +51,18 @@ const UserChannelPage = () => {
     getData();
   }, [getData, ctx.userChannel.displayName]);
 
+  let displayName = AuthCtx?.email?.split("@")[0];
+
   const sendData = async () => {
     const enteredText = userChannelInputRef.current?.value;
-    localStorage.setItem("enteredText", enteredText);
+    const chatIdentifier = `${displayName}_${ctx.userChannel.displayName}`;
     const response = await fetch(
-      `https://chat-application-bb1d8-default-rtdb.firebaseio.com/${ctx.userChannel.displayName}.json`,
+      `https://chat-application-bb1d8-default-rtdb.firebaseio.com/messages/${chatIdentifier}.json`,
       {
         method: "POST",
         body: JSON.stringify({
-          recipient: ctx.userChannel.displayName,
-          textEntered,
+          enteredText,
+          recepient: ctx.userChannel.displayName,
           sender: AuthCtx?.email?.split("@")[0],
         }),
       }
@@ -74,7 +75,6 @@ const UserChannelPage = () => {
   const message = isCurrentUser
     ? "message user-message"
     : "message other-message";
-
   return (
     <>
       <main className="userchannelpage-main">
@@ -84,9 +84,9 @@ const UserChannelPage = () => {
         <section className="section-scroll">
           {channelInputValueArray?.map((item, index) => {
             return (
-              <section className="message-user-channel">
+              <section>
                 <div className={message} key={index}>
-                  <h4>{item.sender}</h4>
+                  <h4>{item.displayName}</h4>
                   <h2>{item.comment}</h2>
                 </div>
               </section>

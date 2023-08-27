@@ -85,6 +85,10 @@
   color: white;
 }
 @media screen and (max-width: 678px) {
+  .welcome-name-div > div {
+    display: flex;
+    flex-direction: column;
+  }
   .welcome-name-div > h1 {
     font-size: 15px;
   }

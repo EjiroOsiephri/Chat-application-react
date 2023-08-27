@@ -84,9 +84,9 @@ const UserChannelPage = () => {
         <section className="section-scroll">
           {channelInputValueArray?.map((item, index) => {
             return (
-              <section>
-                <div className={message} key={index}>
-                  <h4>{item.displayName}</h4>
+              <section key={index}>
+                <div className={message}>
+                  <h4>{item.sender}</h4>
                   <h2>{item.comment}</h2>
                 </div>
               </section>

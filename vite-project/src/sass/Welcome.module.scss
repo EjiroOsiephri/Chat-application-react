@@ -55,17 +55,17 @@
 }
 .input-search > input {
   position: sticky;
-  width: 95%;
+  width: 100%;
   border-radius: 8px;
   background: rgba(60, 57, 63, 1);
   border: none;
   height: 53px;
-  padding-left: 1em;
+  padding-right: 1em;
   margin-top: 2.7em;
   color: white;
   display: flex;
   bottom: 0;
-  padding: 1em;
+  padding-left: 0.5em;
   align-items: center;
   margin-left: 2.5em;
 }
@@ -91,10 +91,20 @@
   }
   .welcome-name-div > h1 {
     font-size: 15px;
+    margin-right: 15px;
   }
   .person-icon {
     display: flex;
     align-items: start;
     font-size: 80px;
+  }
+  .welcome-comments {
+    margin-bottom: 4em;
+  }
+  .welcome-comments:last-child {
+    margin-bottom: 2em;
+  }
+  .send-channel-div {
+    top: 45px;
   }
 }

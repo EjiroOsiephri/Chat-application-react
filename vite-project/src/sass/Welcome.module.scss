@@ -44,7 +44,9 @@
 }
 .person-icon {
   align-self: start;
-  font-size: 1.8rem;
+  margin-right: 0.6em;
+  border-radius: 20px;
+  width: 40px;
   color: gray;
 }
 .welcome-name-div > h1 {
@@ -68,7 +70,7 @@
   color: white;
   display: flex;
   padding-top: 1em;
-  bottom: 0;
+  bottom: 60px;
   padding-left: 0.5em;
   align-items: center;
   margin-left: 2.5em;
@@ -91,6 +93,7 @@
 .showNav {
   display: none;
 }
+
 @media screen and (max-width: 678px) {
   .welcome-name-div > div {
     display: flex;

@@ -6,6 +6,7 @@ import Classes from "../sass/Welcome.module.scss";
 import { BsPersonCircle, BsSend } from "react-icons/bs";
 import { FaBars, FaTimes } from "react-icons/fa";
 import AppWideContext from "../context/AppWideContext";
+import Person from "../assets/Person.png";
 
 const Welcome = (props) => {
   const [welcomeData, setWelcomeDataArray] = useState(null);
@@ -88,9 +89,7 @@ const Welcome = (props) => {
           {welcomeData?.map((item, index) => {
             return (
               <aside className={Classes["welcome-comments"]} key={index}>
-                <BsPersonCircle
-                  className={Classes["person-icon"]}
-                ></BsPersonCircle>
+                <img className={Classes["person-icon"]} src={Person} alt="" />
                 <div className={Classes["welcome-name-div"]}>
                   <div>
                     <p>{item.name}</p>

@@ -82,7 +82,7 @@ const UserChannelPage = () => {
         <header className="welcome-header">
           <p>{ctx.userChannel.displayName}</p>
         </header>
-        <section className="section-scroll">
+        <section className="section-scroll grid-container">
           {channelInputValueArray?.map((item, index) => {
             const isCurrentUser = item.sender === displayName;
             const messageClassName = isCurrentUser

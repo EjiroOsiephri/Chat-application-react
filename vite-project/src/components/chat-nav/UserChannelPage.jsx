@@ -1,6 +1,6 @@
 import React, { useContext, useState, useEffect, useRef } from "react";
 import "../../sass/UserChannelPage.scss";
-import { BsSend } from "react-icons/bs";
+import { BsSend, BsPersonCircle } from "react-icons/bs";
 import { FaTimes } from "react-icons/fa";
 
 import AppWideContext from "../../context/AppWideContext";
@@ -56,6 +56,10 @@ const UserChannelPage = () => {
 
   const sendData = async () => {
     const enteredText = userChannelInputRef.current?.value;
+    console.log(enteredText.length);
+    if (enteredText.length === 0) {
+      return;
+    }
     const chatIdentifier = `${displayName}_${ctx.userChannel.displayName}`;
     const response = await fetch(
       `https://chat-application-bb1d8-default-rtdb.firebaseio.com/messages/${chatIdentifier}.json`,

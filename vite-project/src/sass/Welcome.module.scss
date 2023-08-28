@@ -4,6 +4,7 @@
 }
 .welcome-header {
   width: 100%;
+  position: fixed;
   height: 59.49px;
   background-color: rgba(37, 35, 41, 1);
   border-radius: 8px;
@@ -17,13 +18,14 @@
 }
 .welcome-comments {
   display: flex;
-  margin-top: 2em;
+  margin-top: 4.5em;
   margin-left: 1em;
 }
 .welcome-name-div {
   display: grid;
   margin-left: 0.6em;
 }
+
 .welcome-name-div > div {
   display: flex;
 }
@@ -53,7 +55,7 @@
   display: flex;
   justify-content: center;
 }
-.input-search > input {
+.input-search > textarea {
   position: sticky;
   width: 100%;
   border-radius: 8px;
@@ -64,6 +66,7 @@
   margin-top: 2.7em;
   color: white;
   display: flex;
+  padding-top: 1em;
   bottom: 0;
   padding-left: 0.5em;
   align-items: center;
@@ -84,6 +87,9 @@
   margin-top: 12px;
   color: white;
 }
+.showNav {
+  display: none;
+}
 @media screen and (max-width: 678px) {
   .welcome-name-div > div {
     display: flex;
@@ -97,14 +103,23 @@
     display: flex;
     align-items: start;
     font-size: 80px;
+    margin-top: 10px;
   }
   .welcome-comments {
-    margin-bottom: 4em;
+    margin-bottom: 2em;
   }
   .welcome-comments:last-child {
     margin-bottom: 2em;
   }
   .send-channel-div {
     top: 45px;
+  }
+  .showNav {
+    position: relative;
+    left: 2px;
+    z-index: 20;
+    margin-left: -35px;
+    display: block;
+    margin-right: 0.6em;
   }
 }

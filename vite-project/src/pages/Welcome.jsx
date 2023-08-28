@@ -4,6 +4,8 @@ import { channelActions } from "../store/ChannelSlice";
 import AuthContext from "../context/Auth-context";
 import Classes from "../sass/Welcome.module.scss";
 import { BsPersonCircle, BsSend } from "react-icons/bs";
+import { FaBars, FaTimes } from "react-icons/fa";
+import AppWideContext from "../context/AppWideContext";
 
 const Welcome = (props) => {
   const state = useSelector((state) => state.channel.welcomeChannelHistory);
@@ -26,10 +28,45 @@ const Welcome = (props) => {
     commentInputRef.current.value = "";
   }
 
+  const AuthCtx = useContext(AppWideContext);
+
+  function showNav() {
+    AuthCtx.setShowNav(true);
+  }
+  function hideNav() {
+    AuthCtx.setShowNav(false);
+  }
+
   return (
     <>
       <main className={Classes["welcome-channel-main"]}>
-        <header className={Classes["welcome-header"]}>Welcome Channel</header>
+        <header className={Classes["welcome-header"]}>
+          <div className={Classes["showNav"]}>
+            <FaBars
+              style={
+                AuthCtx.showNav
+                  ? {
+                      display: "none",
+                    }
+                  : { display: "block" }
+              }
+              onClick={showNav}
+              className={Classes["bars"]}
+            ></FaBars>
+            <FaTimes
+              style={
+                AuthCtx.showNav
+                  ? {
+                      display: "block",
+                    }
+                  : { display: "none" }
+              }
+              onClick={hideNav}
+              className={Classes["times"]}
+            ></FaTimes>
+          </div>
+          Welcome Channel
+        </header>
         <section>
           {state?.map((item, index) => {
             return (
@@ -49,7 +86,7 @@ const Welcome = (props) => {
           })}
         </section>
         <div className={Classes["input-search"]}>
-          <input
+          <textarea
             type="text"
             placeholder="Type a message here"
             ref={commentInputRef}

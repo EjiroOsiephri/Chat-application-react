@@ -89,7 +89,16 @@ const ChannelPage = (props) => {
 
   return (
     <>
-      <main className={Classes["channel-main"]}>
+      <main
+        style={
+          appWideContext.showNav
+            ? {
+                display: "block",
+              }
+            : {}
+        }
+        className={Classes["channel-main"]}
+      >
         <nav className={Classes["channel-navigation"]}>
           <h1>Channels</h1>
           <p>+</p>

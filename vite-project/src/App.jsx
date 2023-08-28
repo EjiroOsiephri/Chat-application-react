@@ -9,9 +9,12 @@ function App() {
   const ctx = useContext(AuthContext);
 
   const [userChannel, setUserChannel] = useState(null);
+  const [showNav, setShowNav] = useState(false);
 
   const contextValue = {
     setUserChannel,
+    setShowNav,
+    showNav,
     userChannel,
   };
   return (

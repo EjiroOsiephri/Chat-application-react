@@ -1,6 +1,6 @@
 import React, { useContext, useState, useEffect, useRef } from "react";
 import "../../sass/UserChannelPage.scss";
-import { BsPersonCircle, BsSend } from "react-icons/bs";
+import { BsSend } from "react-icons/bs";
 
 import AppWideContext from "../../context/AppWideContext";
 import AuthContext from "../../context/Auth-context";

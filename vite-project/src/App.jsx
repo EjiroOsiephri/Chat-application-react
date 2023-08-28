@@ -1,9 +1,14 @@
 import { Routes, Route, Navigate } from "react-router-dom";
 import SignUp from "./pages/SignUp";
-import { useContext, useState } from "react";
+import React, { Suspense, useContext, useState } from "react";
 import AuthContext from "./context/Auth-context";
-import ChannelHome from "./components/chat-application/ChannelHome";
 import AppWideContext from "./context/AppWideContext";
+
+import "./app.scss";
+import LoadingSpinner from "./components/LoadingSpinner";
+const ChannelHome = React.lazy(() =>
+  import("./components/chat-application/ChannelHome")
+);
 
 function App() {
   const ctx = useContext(AuthContext);
@@ -20,13 +25,17 @@ function App() {
   return (
     <>
       <AppWideContext.Provider value={contextValue}>
-        <Routes>
-          <Route element={<SignUp />} path="/" />
-          {ctx.isLoggedIn && (
-            <Route element={<ChannelHome />} path="/channel" />
-          )}
-          <Route path="*" element={<Navigate to="/" />} />
-        </Routes>
+        <Suspense
+          fallback={<div className="spinner">{<LoadingSpinner />}</div>}
+        >
+          <Routes>
+            <Route element={<SignUp />} path="/" />
+            {ctx.isLoggedIn && (
+              <Route element={<ChannelHome />} path="/channel" />
+            )}
+            <Route path="*" element={<Navigate to="/" />} />
+          </Routes>
+        </Suspense>
       </AppWideContext.Provider>
     </>
   );

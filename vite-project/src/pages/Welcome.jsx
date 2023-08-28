@@ -1,4 +1,4 @@
-import React, { useContext, useRef } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { channelActions } from "../store/ChannelSlice";
 import AuthContext from "../context/Auth-context";
@@ -8,13 +8,34 @@ import { FaBars, FaTimes } from "react-icons/fa";
 import AppWideContext from "../context/AppWideContext";
 
 const Welcome = (props) => {
+  const [welcomeData, setWelcomeDataArray] = useState(null);
   const state = useSelector((state) => state.channel.welcomeChannelHistory);
   const date = new Date();
   const currentDate = date.toDateString();
-
   const commentInputRef = useRef();
   const dispatch = useDispatch();
   const ctx = useContext(AuthContext);
+
+  const getWelcomeData = async () => {
+    const response = await fetch(
+      "https://chat-application-bb1d8-default-rtdb.firebaseio.com/welcome.json"
+    );
+    const data = await response.json();
+    let welcomeDataArray = [];
+
+    for (const key in data) {
+      welcomeDataArray.push({
+        name: data[key].name,
+        comment: data[key].comment,
+      });
+    }
+
+    setWelcomeDataArray(welcomeDataArray);
+  };
+
+  useEffect(() => {
+    getWelcomeData();
+  }, [getWelcomeData]);
 
   async function addToCommentArray() {
     const commentValue = commentInputRef?.current?.value;
@@ -64,7 +85,7 @@ const Welcome = (props) => {
           Welcome Channel
         </header>
         <section>
-          {state?.map((item, index) => {
+          {welcomeData?.map((item, index) => {
             return (
               <aside className={Classes["welcome-comments"]} key={index}>
                 <BsPersonCircle

@@ -10,7 +10,6 @@ import Person from "../assets/Person.png";
 
 const Welcome = (props) => {
   const [welcomeData, setWelcomeDataArray] = useState(null);
-  const state = useSelector((state) => state.channel.welcomeChannelHistory);
   const date = new Date();
   const currentDate = date.toDateString();
   const commentInputRef = useRef();
@@ -89,7 +88,15 @@ const Welcome = (props) => {
           {welcomeData?.map((item, index) => {
             return (
               <aside className={Classes["welcome-comments"]} key={index}>
-                <img className={Classes["person-icon"]} src={Person} alt="" />
+                {ctx.imgSrc ? (
+                  <img
+                    className={Classes["person-icon"]}
+                    src={ctx.imgSrc}
+                    alt=""
+                  />
+                ) : (
+                  <img className={Classes["person-icon"]} src={Person} alt="" />
+                )}
                 <div className={Classes["welcome-name-div"]}>
                   <div>
                     <p>{item.name}</p>

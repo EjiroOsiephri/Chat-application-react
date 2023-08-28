@@ -15,11 +15,14 @@ function App() {
 
   const [userChannel, setUserChannel] = useState(null);
   const [showNav, setShowNav] = useState(false);
+  const [imgSrc, setImgSrc] = useState("");
 
   const contextValue = {
     setUserChannel,
     setShowNav,
     showNav,
+    imgSrc,
+    setImgSrc,
     userChannel,
   };
   return (

@@ -5,6 +5,7 @@ import Classes from "../../sass/ChannelPage.module.scss";
 import AppWideContext from "../../context/AppWideContext";
 import { BsPersonCircle } from "react-icons/bs";
 import { FaTimes } from "react-icons/fa";
+import Person from "../../assets/person.png";
 
 const ChannelPage = (props) => {
   const ctx = useContext(AuthContext);
@@ -121,9 +122,7 @@ const ChannelPage = (props) => {
                 className={Classes["switch-channel"]}
                 key={index}
               >
-                <BsPersonCircle
-                  className={Classes["person-icon"]}
-                ></BsPersonCircle>
+                <img src={Person} className={Classes["person-icon"]} alt="" />
                 <h1>{item.displayName}</h1>
               </div>
             ))}
@@ -131,12 +130,10 @@ const ChannelPage = (props) => {
         </section>
         <div className={Classes["user-login-info"]}>
           <div className={Classes["about-user-div"]}>
-            <div>
-              <h3 className={Classes.lastLetters}>{lastLetters}</h3>
-            </div>
+            <div>{ctx.imgSrc ? <img src={ctx.imgSrc} /> : <img src="" />}</div>
             <h2>{displayName}</h2>
           </div>
-          <div className={Classes["show-info"]}>{">"}</div>
+          <div></div>
         </div>
       </main>
     </>

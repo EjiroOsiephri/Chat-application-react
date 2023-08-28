@@ -9,6 +9,7 @@ import Classes from "../sass/signup.module.scss";
 import AuthContext from "../context/Auth-context";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import AppWideContext from "../context/AppWideContext";
 
 const SignUp = () => {
   const notify = () => toast("enter valid password");
@@ -16,6 +17,7 @@ const SignUp = () => {
   const [error, setError] = useState(false);
 
   const authCtx = useContext(AuthContext);
+  const ctx = useContext(AppWideContext);
 
   const emailRef = useRef();
   const passwordRef = useRef();
@@ -26,6 +28,8 @@ const SignUp = () => {
   const signUpStateHandler = () => {
     setShowLogin(false);
   };
+
+  console.log(authCtx);
 
   const navigate = useNavigate();
 
@@ -67,6 +71,7 @@ const SignUp = () => {
         idToken: data.idToken,
         displayName: data.email.split("@")[0],
       });
+
       navigate("/channel");
     } catch (error) {
       console.log(error);
@@ -83,6 +88,8 @@ const SignUp = () => {
           idToken: result.user.uid,
           displayName: result.user.displayName,
         });
+        authCtx.getImg(result.user.photoURL);
+        ctx.setImgSrc(result.user.photoURL);
         navigate("/channel");
       })
       .catch((error) => {

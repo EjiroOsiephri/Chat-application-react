@@ -30,12 +30,12 @@ const UserChannelPage = () => {
       const data1 = await res1.json();
       const data2 = await res2.json();
 
-      const combinedData = { ...data1, ...data2 };
+      const combinedData = { ...data2, ...data1 };
 
       const channelInputValueArray = [];
 
       for (const key in combinedData) {
-        channelInputValueArray.unshift({
+        channelInputValueArray.push({
           id: key,
           sender: combinedData[key].sender,
           recipient: combinedData[key].recipient,

@@ -16,10 +16,12 @@ export const AuthProvider = (props) => {
   const initialToken = localStorage.getItem("token");
   const initialEmail = localStorage.getItem("email");
   const initialUsers = JSON.parse(localStorage.getItem("users")) || [];
+  const initialImg = localStorage.getItem("src");
 
   const [token, setToken] = useState(initialToken);
   const [email, setEmail] = useState(initialEmail);
   const [users, setUsers] = useState(initialUsers);
+  const [imgSrc, setImgSrc] = useState(initialImg);
 
   let userIsLoggedIn = !!token;
 
@@ -40,12 +42,19 @@ export const AuthProvider = (props) => {
     });
   };
 
+  function getImg(src) {
+    setImgSrc(src);
+    localStorage.setItem("src", src);
+  }
+
   const contextValue = {
     users,
     token,
     isLoggedIn: userIsLoggedIn,
     loginWithEmail,
     email,
+    getImg,
+    imgSrc,
     emailValue,
     addUsers,
   };

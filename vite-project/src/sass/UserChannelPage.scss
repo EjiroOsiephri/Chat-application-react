@@ -5,6 +5,7 @@
   flex: 1;
 }
 .welcome-header {
+  text-transform: capitalize;
   display: flex;
   width: 100%;
   height: 59.49px;
@@ -59,8 +60,14 @@
   color: white;
 }
 
-.other-message {
-  position: relative;
+.message > h2,
+h4 {
+  text-transform: capitalize;
+}
+
+.user-message {
+  position: absolute;
+  text-transform: capitalize;
   margin: 10px 0;
   padding: 15px;
   background-color: #25d366;
@@ -68,15 +75,22 @@
   border-radius: 5px;
   align-self: flex-end;
   max-width: 70%;
+  right: 0;
 }
 
-.user-message {
-  position: relative;
+.other-message {
   margin: 10px 0;
   padding: 15px;
-  background-color: gray;
-  color: white;
+  background-color: white;
   border-radius: 5px;
   align-self: flex-start;
   max-width: 70%;
+}
+.other-message h4 {
+  color: #25d366;
+}
+.other-message h2 {
+  color: rgba(37, 35, 41, 1);
+  font-size: 18px;
+  margin-top: 0.2em;
 }

@@ -82,6 +82,7 @@
   justify-content: space-between;
   margin-bottom: 1.6rem;
   cursor: pointer;
+  text-transform: capitalize;
 }
 .switch-channel > p {
   text-transform: capitalize;
@@ -103,6 +104,7 @@
 .about-user-div {
   position: absolute;
   bottom: 0;
+  text-transform: capitalize;
   display: flex;
   justify-content: space-between;
 }

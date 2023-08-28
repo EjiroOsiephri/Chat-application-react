@@ -75,6 +75,7 @@ const UserChannelPage = () => {
   const message = isCurrentUser
     ? "message user-message"
     : "message other-message";
+
   return (
     <>
       <main className="userchannelpage-main">
@@ -83,9 +84,13 @@ const UserChannelPage = () => {
         </header>
         <section className="section-scroll">
           {channelInputValueArray?.map((item, index) => {
+            const isCurrentUser = item.sender === displayName;
+            const messageClassName = isCurrentUser
+              ? "message user-message"
+              : "message other-message";
             return (
               <section key={index}>
-                <div className={message}>
+                <div className={messageClassName}>
                   <h4>{item.sender}</h4>
                   <h2>{item.comment}</h2>
                 </div>

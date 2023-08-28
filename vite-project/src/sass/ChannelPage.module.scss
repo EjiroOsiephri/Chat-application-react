@@ -137,6 +137,7 @@
   color: rgba(189, 189, 189, 1);
 }
 .times {
+  display: none;
   font-size: 20px;
   background-color: black;
   color: white;
@@ -146,6 +147,9 @@
   .channel-main {
     position: relative;
     width: 94vw;
+  }
+  .times {
+    display: block;
   }
 }
 @media screen and (max-width: 878px) {

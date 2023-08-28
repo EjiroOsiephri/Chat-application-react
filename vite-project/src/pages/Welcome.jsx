@@ -16,7 +16,7 @@ const Welcome = (props) => {
   const dispatch = useDispatch();
   const ctx = useContext(AuthContext);
 
-  function addToCommentArray() {
+  async function addToCommentArray() {
     const commentValue = commentInputRef?.current?.value;
     const displayName = ctx?.email?.split("@")[0];
     dispatch(
@@ -26,6 +26,16 @@ const Welcome = (props) => {
       })
     );
     commentInputRef.current.value = "";
+    const response = await fetch(
+      "https://chat-application-bb1d8-default-rtdb.firebaseio.com/welcome.json",
+      {
+        method: "POST",
+        body: JSON.stringify({
+          name: displayName,
+          comment: commentValue,
+        }),
+      }
+    );
   }
 
   const AuthCtx = useContext(AppWideContext);

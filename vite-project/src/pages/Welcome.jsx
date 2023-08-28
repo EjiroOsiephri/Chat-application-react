@@ -33,9 +33,6 @@ const Welcome = (props) => {
   function showNav() {
     AuthCtx.setShowNav(true);
   }
-  function hideNav() {
-    AuthCtx.setShowNav(false);
-  }
 
   return (
     <>
@@ -53,17 +50,6 @@ const Welcome = (props) => {
               onClick={showNav}
               className={Classes["bars"]}
             ></FaBars>
-            <FaTimes
-              style={
-                AuthCtx.showNav
-                  ? {
-                      display: "block",
-                    }
-                  : { display: "none" }
-              }
-              onClick={hideNav}
-              className={Classes["times"]}
-            ></FaTimes>
           </div>
           Welcome Channel
         </header>

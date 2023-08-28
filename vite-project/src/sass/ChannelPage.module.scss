@@ -15,15 +15,19 @@
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   display: flex;
   height: 58px;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   color: #25d366;
 }
-.channel-navigation > h1 {
+.channel-navigation > div {
+  display: flex;
+}
+.channel-navigation > div > h1 {
   font-size: 18px;
   font-weight: 700;
+  margin-right: 2em;
 }
-.channel-navigation > p {
+.channel-navigation > div > p {
   display: flex;
   cursor: pointer;
   justify-content: center;
@@ -132,7 +136,12 @@
   font-size: 18px;
   color: rgba(189, 189, 189, 1);
 }
-
+.times {
+  font-size: 20px;
+  background-color: black;
+  color: white;
+  border-radius: 8px;
+}
 @media screen and (max-width: 678px) {
   .channel-main {
     position: relative;

@@ -1,6 +1,7 @@
 import React, { useContext, useState, useEffect, useRef } from "react";
 import "../../sass/UserChannelPage.scss";
 import { BsSend } from "react-icons/bs";
+import { FaTimes } from "react-icons/fa";
 
 import AppWideContext from "../../context/AppWideContext";
 import AuthContext from "../../context/Auth-context";
@@ -70,17 +71,15 @@ const UserChannelPage = () => {
     userChannelInputRef.current.value = "";
   };
 
-  const isCurrentUser = displayName === ctx.userChannel.displayName;
-
-  const message = isCurrentUser
-    ? "message user-message"
-    : "message other-message";
-
+  function hideNav() {
+    ctx.setShowNav(true);
+  }
   return (
     <>
       <main className="userchannelpage-main">
         <header className="welcome-header">
           <p>{ctx.userChannel.displayName}</p>
+          <FaTimes onClick={hideNav} className="times"></FaTimes>
         </header>
         <section className="section-scroll grid-container">
           {channelInputValueArray?.map((item, index) => {

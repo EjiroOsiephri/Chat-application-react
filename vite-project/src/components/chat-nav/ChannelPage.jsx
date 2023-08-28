@@ -4,9 +4,11 @@ import { FaSearch } from "react-icons/fa";
 import Classes from "../../sass/ChannelPage.module.scss";
 import AppWideContext from "../../context/AppWideContext";
 import { BsPersonCircle } from "react-icons/bs";
+import { FaTimes } from "react-icons/fa";
 
 const ChannelPage = (props) => {
   const ctx = useContext(AuthContext);
+  const appWideContext = useContext(AppWideContext);
 
   function getFirstLetters(name) {
     const words = name.split(" ");
@@ -61,15 +63,15 @@ const ChannelPage = (props) => {
 
   const lastLetters = ctx?.email?.charAt(0);
 
-  const appWideContext = useContext(AppWideContext);
-
   const setUserChannel = (item) => {
     appWideContext.setUserChannel(item);
     props.setWelcome(false);
+    appWideContext.setShowNav(false);
   };
 
   const welcomePageHandler = () => {
     props.setWelcome(true);
+    appWideContext.setShowNav(false);
   };
 
   const sendData = async () => {
@@ -87,21 +89,19 @@ const ChannelPage = (props) => {
     sendData();
   }, []);
 
+  function hideNav() {
+    appWideContext.setShowNav(false);
+  }
+
   return (
     <>
-      <main
-        style={
-          appWideContext.showNav
-            ? {
-                display: "block",
-              }
-            : {}
-        }
-        className={Classes["channel-main"]}
-      >
+      <main className={Classes["channel-main"]}>
         <nav className={Classes["channel-navigation"]}>
-          <h1>Channels</h1>
-          <p>+</p>
+          <div>
+            <h1>Channels</h1>
+            <p>+</p>
+          </div>
+          <FaTimes onClick={hideNav} className={Classes["times"]}></FaTimes>
         </nav>
         <div className={Classes["search"]}>
           <FaSearch className={Classes["search-logo"]} />

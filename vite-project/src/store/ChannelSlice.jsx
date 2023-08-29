@@ -29,10 +29,14 @@ const channelSlice = createSlice({
   name: "welcomechannel",
   initialState: {
     welcomeChannelHistory: Dummy_Data,
+    newChannel: [],
   },
   reducers: {
     addTextToWelcomeChannel(state, action) {
       state.welcomeChannelHistory.push(action.payload);
+    },
+    addNewChannel(state, action) {
+      state.newChannel.push(action.payload);
     },
   },
 });

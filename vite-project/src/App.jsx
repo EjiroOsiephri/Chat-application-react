@@ -18,6 +18,7 @@ function App() {
   const [showNav, setShowNav] = useState(false);
   const [imgSrc, setImgSrc] = useState("");
   const [channel, setNewChannel] = useState(false);
+  const [getState, setState] = useState(null);
 
   const contextValue = {
     setUserChannel,
@@ -28,6 +29,8 @@ function App() {
     userChannel,
     channel,
     setNewChannel,
+    getState,
+    setState,
   };
   return (
     <>

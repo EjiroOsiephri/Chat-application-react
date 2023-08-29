@@ -132,6 +132,29 @@ const ChannelPage = (props) => {
             <h2>W</h2>
             <h1>Welcome channel</h1>
           </div>
+          {props.welcome ? (
+            <aside>
+              {appWideContext?.getState?.map((item) => {
+                return (
+                  <div className={Classes["welcome"]}>
+                    <h2></h2>
+                    <h1>{item.name}</h1>
+                  </div>
+                );
+              })}
+            </aside>
+          ) : (
+            <aside>
+              {appWideContext?.getState?.map((item) => {
+                return (
+                  <div className={Classes["welcome"]}>
+                    <h2></h2>
+                    <h1>{item.name}</h1>
+                  </div>
+                );
+              })}
+            </aside>
+          )}
           {props.welcome && (
             <div className={Classes["description-section"]}>
               <h4>

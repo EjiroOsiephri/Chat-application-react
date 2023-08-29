@@ -28,7 +28,7 @@ const Dummy_Data = [
 const channelSlice = createSlice({
   name: "welcomechannel",
   initialState: {
-    welcomeChannelHistory: Dummy_Data,
+    welcomeChannelHistory: [],
     newChannel: [],
   },
   reducers: {

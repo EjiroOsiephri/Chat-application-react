@@ -29,8 +29,6 @@ const SignUp = () => {
     setShowLogin(false);
   };
 
-  console.log(authCtx);
-
   const navigate = useNavigate();
 
   const handleSubmitHandler = async (e) => {

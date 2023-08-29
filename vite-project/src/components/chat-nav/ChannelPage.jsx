@@ -3,7 +3,7 @@ import AuthContext from "../../context/Auth-context";
 import { FaSearch } from "react-icons/fa";
 import Classes from "../../sass/ChannelPage.module.scss";
 import AppWideContext from "../../context/AppWideContext";
-import { BsPersonCircle } from "react-icons/bs";
+import { AiOutlineDown } from "react-icons/ai";
 import { FaTimes } from "react-icons/fa";
 import Person from "../../assets/person.png";
 
@@ -16,10 +16,6 @@ const ChannelPage = (props) => {
     const firstLetters = words.map((word) => word.charAt(0));
     return firstLetters.join("");
   }
-
-  const firstLetters = ctx.users.map((user) => {
-    return getFirstLetters(user.displayName);
-  });
 
   const [uniqueUser, setUniqueUsers] = useState(null);
 
@@ -62,8 +58,6 @@ const ChannelPage = (props) => {
     return unique;
   }, []);
 
-  const lastLetters = ctx?.email?.charAt(0);
-
   const setUserChannel = (item) => {
     appWideContext.setUserChannel(item);
     props.setWelcome(false);
@@ -94,13 +88,17 @@ const ChannelPage = (props) => {
     appWideContext.setShowNav(false);
   }
 
+  function goBackToAllChannelPage() {
+    props.setWelcome(false);
+  }
+
   return (
     <>
       <main className={Classes["channel-main"]}>
         <nav className={Classes["channel-navigation"]}>
           {props.welcome ? (
             <div>
-              <p>{"<"}</p>
+              <p onClick={goBackToAllChannelPage}>{"<"}</p>
               <h1>All Channels</h1>
             </div>
           ) : (
@@ -126,13 +124,14 @@ const ChannelPage = (props) => {
           {props.welcome && (
             <div className={Classes["description-section"]}>
               <h4>
-                This is a channel that welcome all users can drop a message and
-                feel out the website
+                This is a channel that welcomes all users. All users can drop a
+                message and feel out the website.
               </h4>
             </div>
           )}
           {props.welcome && (
             <aside>
+              <h1 className={Classes["Aside-members"]}>Members</h1>
               {uniqueUsers?.map((item, index) => (
                 <div
                   onClick={() => {
@@ -150,8 +149,11 @@ const ChannelPage = (props) => {
         </section>
         <div className={Classes["user-login-info"]}>
           <div className={Classes["about-user-div"]}>
-            <div>{ctx.imgSrc ? <img src={ctx.imgSrc} /> : <img src="" />}</div>
-            <h2>{displayName}</h2>
+            <div>
+              {ctx.imgSrc ? <img src={ctx.imgSrc} /> : <img src="" />}{" "}
+              <h2>{displayName}</h2>
+            </div>
+            <AiOutlineDown className={Classes["down-icon"]}></AiOutlineDown>
           </div>
           <div></div>
         </div>

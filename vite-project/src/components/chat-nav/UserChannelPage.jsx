@@ -50,7 +50,7 @@ const UserChannelPage = () => {
 
   useEffect(() => {
     getData();
-  }, [getData, ctx.userChannel.displayName]);
+  }, [getData, ctx?.userChannel?.displayName]);
 
   let displayName = AuthCtx?.email?.split("@")[0];
 
@@ -82,7 +82,7 @@ const UserChannelPage = () => {
     <>
       <main className="userchannelpage-main">
         <header className="welcome-header">
-          <p>{ctx.userChannel.displayName}</p>
+          <p>{ctx?.userChannel?.displayName}</p>
           <FaTimes onClick={hideNav} className="times"></FaTimes>
         </header>
         <section className="section-scroll grid-container">

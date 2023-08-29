@@ -103,17 +103,27 @@ const ChannelPage = (props) => {
     appWideContext.setNewChannel((prevValue) => !prevValue);
   }
 
+  const [newChannel, setNewChannel] = useState(null);
+
   async function getNewChannelData() {
-    // const response = await fetch(
-    //   `https://chat-application-bb1d8-default-rtdb.firebaseio.com/${displayName}.json`
-    // );
-    // const data = await response.json();
-    // console.log(data);
+    const response = await fetch(
+      `https://chat-application-bb1d8-default-rtdb.firebaseio.com/${displayName}_new.json`
+    );
+    const data = await response.json();
+
+    const newChannelDataArray = [];
+    for (const key in data) {
+      newChannelDataArray.push({
+        name: data[key].name,
+        description: data[key].description,
+      });
+    }
+    setNewChannel(newChannelDataArray);
   }
 
   useEffect(() => {
     getNewChannelData();
-  }, []);
+  }, [getNewChannelData]);
 
   return (
     <>
@@ -144,23 +154,12 @@ const ChannelPage = (props) => {
             <h2>W</h2>
             <h1>Welcome channel</h1>
           </div>
-          {props.welcome ? (
+          {!props.welcome && (
             <aside>
-              {appWideContext?.getState?.map((item) => {
+              {newChannel?.map((item) => {
                 return (
                   <div className={Classes["welcome"]}>
-                    <h2></h2>
-                    <h1>{item.name}</h1>
-                  </div>
-                );
-              })}
-            </aside>
-          ) : (
-            <aside>
-              {appWideContext?.getState?.map((item) => {
-                return (
-                  <div className={Classes["welcome"]}>
-                    <h2></h2>
+                    <h2>NEW</h2>
                     <h1>{item.name}</h1>
                   </div>
                 );

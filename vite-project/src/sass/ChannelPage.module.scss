@@ -19,6 +19,7 @@
   justify-content: space-between;
   align-items: center;
   color: #25d366;
+  width: 100%;
 }
 .channel-navigation > div {
   display: flex;
@@ -178,6 +179,9 @@
   align-self: center;
 }
 @media screen and (max-width: 678px) {
+  .about-user-div {
+    position: relative;
+  }
   .channel-main {
     position: relative;
     width: 94vw;

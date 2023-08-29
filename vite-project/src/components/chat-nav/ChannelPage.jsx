@@ -6,6 +6,7 @@ import AppWideContext from "../../context/AppWideContext";
 import { AiOutlineDown } from "react-icons/ai";
 import { FaTimes } from "react-icons/fa";
 import Person from "../../assets/person.png";
+import PersonalProfile from "../PersonalProfile";
 
 const ChannelPage = (props) => {
   const ctx = useContext(AuthContext);
@@ -92,6 +93,12 @@ const ChannelPage = (props) => {
     props.setWelcome(false);
   }
 
+  const [showProfile, setShowProfile] = useState(false);
+
+  function showProfileSection() {
+    setShowProfile((prevValue) => !prevValue);
+  }
+
   return (
     <>
       <main className={Classes["channel-main"]}>
@@ -147,13 +154,17 @@ const ChannelPage = (props) => {
             </aside>
           )}
         </section>
+        {showProfile && <PersonalProfile />}
         <div className={Classes["user-login-info"]}>
           <div className={Classes["about-user-div"]}>
             <div>
               {ctx.imgSrc ? <img src={ctx.imgSrc} /> : <img src="" />}{" "}
               <h2>{displayName}</h2>
             </div>
-            <AiOutlineDown className={Classes["down-icon"]}></AiOutlineDown>
+            <AiOutlineDown
+              onClick={showProfileSection}
+              className={Classes["down-icon"]}
+            ></AiOutlineDown>
           </div>
           <div></div>
         </div>

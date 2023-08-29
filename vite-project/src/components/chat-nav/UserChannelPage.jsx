@@ -1,6 +1,6 @@
 import React, { useContext, useState, useEffect, useRef } from "react";
 import "../../sass/UserChannelPage.scss";
-import { BsSend, BsPersonCircle } from "react-icons/bs";
+import { BsSend } from "react-icons/bs";
 import { FaTimes } from "react-icons/fa";
 
 import AppWideContext from "../../context/AppWideContext";
@@ -32,16 +32,16 @@ const UserChannelPage = () => {
 
       const combinedData = { ...data2, ...data1 };
 
-      const channelInputValueArray = [];
+      const channelInputValueArray = Object.values(combinedData)
 
-      for (const key in combinedData) {
-        channelInputValueArray.push({
-          id: key,
-          sender: combinedData[key].sender,
-          recipient: combinedData[key].recipient,
-          comment: combinedData[key].enteredText,
-        });
-      }
+        .sort((a, b) => a.timestamp - b.timestamp)
+        .map((item) => ({
+          id: item.id,
+          sender: item.sender,
+          recipient: item.recipient,
+          comment: item.enteredText,
+        }));
+
       setChannelInputValueArray(channelInputValueArray);
     } catch (error) {
       console.log(error);
@@ -56,10 +56,11 @@ const UserChannelPage = () => {
 
   const sendData = async () => {
     const enteredText = userChannelInputRef.current?.value;
-    console.log(enteredText.length);
+
     if (enteredText.length === 0) {
       return;
     }
+    const timestamp = new Date().getTime();
     const chatIdentifier = `${displayName}_${ctx.userChannel.displayName}`;
     const response = await fetch(
       `https://chat-application-bb1d8-default-rtdb.firebaseio.com/messages/${chatIdentifier}.json`,
@@ -69,6 +70,7 @@ const UserChannelPage = () => {
           enteredText,
           recepient: ctx.userChannel.displayName,
           sender: AuthCtx?.email?.split("@")[0],
+          timestamp,
         }),
       }
     );

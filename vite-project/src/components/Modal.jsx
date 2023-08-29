@@ -11,7 +11,7 @@ const Modal = () => {
       <div className={Styled.content}>
         <h1>New Channel</h1>
       </div>
-      <div className="input-description">
+      <div className={Styled["input-description"]}>
         <input type="text" placeholder="Channel name" />
         <textarea placeholder="Channel description"></textarea>
       </div>

@@ -6,6 +6,7 @@ import AppWideContext from "./context/AppWideContext";
 
 import "./app.scss";
 import LoadingSpinner from "./components/LoadingSpinner";
+import Module from "./components/Modal";
 const ChannelHome = React.lazy(() =>
   import("./components/chat-application/ChannelHome")
 );
@@ -16,6 +17,7 @@ function App() {
   const [userChannel, setUserChannel] = useState(null);
   const [showNav, setShowNav] = useState(false);
   const [imgSrc, setImgSrc] = useState("");
+  const [channel, setNewChannel] = useState(false);
 
   const contextValue = {
     setUserChannel,
@@ -24,10 +26,13 @@ function App() {
     imgSrc,
     setImgSrc,
     userChannel,
+    channel,
+    setNewChannel,
   };
   return (
     <>
       <AppWideContext.Provider value={contextValue}>
+        {channel && <Module />}
         <Suspense
           fallback={<div className="spinner">{<LoadingSpinner />}</div>}
         >

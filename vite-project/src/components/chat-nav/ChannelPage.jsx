@@ -99,6 +99,10 @@ const ChannelPage = (props) => {
     setShowProfile((prevValue) => !prevValue);
   }
 
+  function showNewChannel() {
+    appWideContext.setNewChannel((prevValue) => !prevValue);
+  }
+
   return (
     <>
       <main className={Classes["channel-main"]}>
@@ -111,7 +115,7 @@ const ChannelPage = (props) => {
           ) : (
             <div>
               <h1>Channels</h1>
-              <p>+</p>
+              <p onClick={showNewChannel}>+</p>
             </div>
           )}
           <FaTimes onClick={hideNav} className={Classes["times"]}></FaTimes>

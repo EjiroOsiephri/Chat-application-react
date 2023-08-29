@@ -94,39 +94,61 @@ const ChannelPage = (props) => {
     appWideContext.setShowNav(false);
   }
 
+  console.log(props);
+
   return (
     <>
       <main className={Classes["channel-main"]}>
         <nav className={Classes["channel-navigation"]}>
-          <div>
-            <h1>Channels</h1>
-            <p>+</p>
-          </div>
+          {props.welcome ? (
+            <div>
+              <p>{"<"}</p>
+              <h1>All Channels</h1>
+            </div>
+          ) : (
+            <div>
+              <h1>Channels</h1>
+              <p>+</p>
+            </div>
+          )}
           <FaTimes onClick={hideNav} className={Classes["times"]}></FaTimes>
         </nav>
-        <div className={Classes["search"]}>
-          <FaSearch className={Classes["search-logo"]} />
-          <input type="text" placeholder="Search" />
-        </div>
+
+        {!props.welcome && (
+          <div className={Classes["search"]}>
+            <FaSearch className={Classes["search-logo"]} />
+            <input type="text" placeholder="Search" />
+          </div>
+        )}
         <section className={Classes["channelDiv"]}>
           <div onClick={welcomePageHandler} className={Classes["welcome"]}>
             <h2>W</h2>
             <h1>Welcome channel</h1>
           </div>
-          <aside>
-            {uniqueUsers?.map((item, index) => (
-              <div
-                onClick={() => {
-                  setUserChannel(item);
-                }}
-                className={Classes["switch-channel"]}
-                key={index}
-              >
-                <img src={Person} className={Classes["person-icon"]} alt="" />
-                <h1>{item.displayName}</h1>
-              </div>
-            ))}
-          </aside>
+          {props.welcome && (
+            <div className={Classes["description-section"]}>
+              <h4>
+                This is a channel that welcome all users can drop a message and
+                feel out the website
+              </h4>
+            </div>
+          )}
+          {props.welcome && (
+            <aside>
+              {uniqueUsers?.map((item, index) => (
+                <div
+                  onClick={() => {
+                    setUserChannel(item);
+                  }}
+                  className={Classes["switch-channel"]}
+                  key={index}
+                >
+                  <img src={Person} className={Classes["person-icon"]} alt="" />
+                  <h1>{item.displayName}</h1>
+                </div>
+              ))}
+            </aside>
+          )}
         </section>
         <div className={Classes["user-login-info"]}>
           <div className={Classes["about-user-div"]}>

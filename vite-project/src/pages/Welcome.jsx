@@ -40,6 +40,9 @@ const Welcome = (props) => {
   async function addToCommentArray() {
     const commentValue = commentInputRef?.current?.value;
     const displayName = ctx?.email?.split("@")[0];
+    if (commentValue.length === 0) {
+      return;
+    }
     dispatch(
       channelActions.addTextToWelcomeChannel({
         name: displayName,

@@ -22,9 +22,13 @@ const ChannelHome = () => {
               : {}
           }
         >
-          <ChannelPage setWelcome={setWelcome} />
+          <ChannelPage welcome={welcome} setWelcome={setWelcome} />
         </div>
-        {welcome ? <Welcome setWelcome={setWelcome} /> : <UserChannelPage />}
+        {welcome ? (
+          <Welcome welcome={welcome} setWelcome={setWelcome} />
+        ) : (
+          <UserChannelPage />
+        )}
       </main>
     </>
   );

@@ -63,6 +63,7 @@
 .welcome {
   display: flex;
   margin-top: 1.3rem;
+
   justify-content: space-between;
   cursor: pointer;
   margin-bottom: 1.3rem;
@@ -147,7 +148,11 @@
   width: 40px;
   border-radius: 10px;
 }
-
+.description-section > h4 {
+  color: rgba(189, 189, 189, 1);
+  display: block;
+  margin: 1em 0 1em 0;
+}
 @media screen and (max-width: 678px) {
   .channel-main {
     position: relative;

@@ -34,6 +34,7 @@
   justify-content: center;
   width: 24px;
   height: 24px;
+  margin-right: 1em;
   font-size: 18px;
   font-weight: 700;
   border-radius: 8px;
@@ -78,6 +79,7 @@
 }
 .welcome > h1 {
   display: flex;
+  text-transform: uppercase;
   color: white;
   margin-left: 0.4em;
   align-items: center;
@@ -151,7 +153,8 @@
 .description-section > h4 {
   color: rgba(189, 189, 189, 1);
   display: block;
-  margin: 1em 0 1em 0;
+  margin: 1em 0 2em 0;
+  line-height: 30px;
 }
 @media screen and (max-width: 678px) {
   .channel-main {

@@ -94,8 +94,6 @@ const ChannelPage = (props) => {
     appWideContext.setShowNav(false);
   }
 
-  console.log(props);
-
   return (
     <>
       <main className={Classes["channel-main"]}>

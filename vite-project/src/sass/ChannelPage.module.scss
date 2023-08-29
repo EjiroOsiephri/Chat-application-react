@@ -88,7 +88,6 @@
 .switch-channel {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 1.6rem;
   cursor: pointer;
   text-transform: capitalize;
 }
@@ -109,12 +108,15 @@
   white-space: nowrap;
   margin-left: 0.5rem;
 }
+.switch-channel > h1:last-child {
+  margin-bottom: 3rem;
+}
 .about-user-div {
-  position: sticky;
-  width: 320px;
+  position: absolute;
+  width: 339px;
   bottom: 0;
   padding: 1em;
-  border-radius: 8px;
+  border-radius: 4px;
   text-transform: capitalize;
   display: flex;
   margin-bottom: -0.8em;
@@ -168,6 +170,12 @@
   font-size: 20px;
   text-align: center;
   letter-spacing: 1.7px;
+}
+.down-icon {
+  color: white;
+  font-size: 20px;
+  font-weight: 900;
+  align-self: center;
 }
 @media screen and (max-width: 678px) {
   .channel-main {

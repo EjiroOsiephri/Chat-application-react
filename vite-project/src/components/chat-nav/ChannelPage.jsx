@@ -103,6 +103,18 @@ const ChannelPage = (props) => {
     appWideContext.setNewChannel((prevValue) => !prevValue);
   }
 
+  async function getNewChannelData() {
+    // const response = await fetch(
+    //   `https://chat-application-bb1d8-default-rtdb.firebaseio.com/${displayName}.json`
+    // );
+    // const data = await response.json();
+    // console.log(data);
+  }
+
+  useEffect(() => {
+    getNewChannelData();
+  }, []);
+
   return (
     <>
       <main className={Classes["channel-main"]}>

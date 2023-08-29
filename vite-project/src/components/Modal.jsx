@@ -4,6 +4,7 @@ import Styled from "../sass/Modal.module.scss";
 import { useDispatch, useSelector } from "react-redux";
 import { channelActions } from "../store/ChannelSlice";
 import AppWideContext from "../context/AppWideContext";
+import AuthContext from "../context/Auth-context";
 
 const BackDrop = () => {
   return <div className={Styled.backdrop}></div>;
@@ -15,10 +16,9 @@ const Modal = () => {
   const dispatch = useDispatch();
 
   const ctx = useContext(AppWideContext);
+  const authCtx = useContext(AuthContext);
 
-  const state = useSelector((state) => state.channel.welcomeChannelHistory);
-
-  const getChannelInfo = () => {
+  const getChannelInfo = async () => {
     const enteredChannelNameInfo = setChannelNameRef?.current?.value;
     const enteredChannelDesscription = setChannelDescriptionRef?.current?.value;
 
@@ -28,17 +28,24 @@ const Modal = () => {
     ) {
       return;
     }
+    const displayName = authCtx?.email?.split("@")[0];
 
-    dispatch(
-      channelActions.addTextToWelcomeChannel({
-        name: enteredChannelNameInfo,
-        description: enteredChannelDesscription,
-      })
+    const response = await fetch(
+      `https://chat-application-bb1d8-default-rtdb.firebaseio.com/${displayName}_new.json`,
+      {
+        method: "POST",
+        body: JSON.stringify({
+          name: enteredChannelNameInfo,
+          description: enteredChannelDesscription,
+        }),
+      }
     );
-    setChannelNameRef.current.value = "";
-    setChannelDescriptionRef.current.value = "";
+    console.log(response);
+
     ctx.setNewChannel(false);
   };
+
+  useEffect(() => {}, []);
 
   return (
     <div className={Styled.modal}>

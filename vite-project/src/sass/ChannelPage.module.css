@@ -1,0 +1,234 @@
+.channel-main {
+  width: 340px;
+  padding: 20px;
+  height: 100vh;
+  background-color: #120f13;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  overflow-y: auto;
+}
+
+.person-icon {
+  align-self: start;
+  width: 40px;
+  border-radius: 30px;
+  color: gray;
+}
+
+.channel-navigation {
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  display: flex;
+  height: 58px;
+  justify-content: space-between;
+  align-items: center;
+  color: #25d366;
+  width: 100%;
+}
+
+.channel-navigation > div {
+  display: flex;
+}
+
+.channel-navigation > div > h1 {
+  font-size: 18px;
+  font-weight: 700;
+  margin-right: 2em;
+}
+
+.channel-navigation > div > p {
+  display: flex;
+  cursor: pointer;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  margin-right: 1em;
+  font-size: 18px;
+  font-weight: 700;
+  border-radius: 8px;
+  background-color: rgb(37, 35, 41);
+}
+
+.search {
+  display: flex;
+  margin-right: 1.3em;
+  margin-top: 1.2em;
+}
+
+.search > input {
+  width: 95%;
+  height: 48px;
+  padding-left: 38px;
+  background: rgb(60, 57, 63);
+  border: none;
+  color: white;
+  border-radius: 8px;
+}
+
+.search-logo {
+  font-size: 20px;
+  position: relative;
+  left: 26px;
+  align-self: center;
+  color: white;
+}
+
+.welcome {
+  display: flex;
+  margin-top: 1.3rem;
+  justify-content: space-between;
+  cursor: pointer;
+  margin-bottom: 1.3rem;
+}
+
+.welcome > h2 {
+  background-color: white;
+  padding: 0.5em;
+  font-size: 18px;
+  color: #25d366;
+  border-radius: 8px;
+  font-weight: 700;
+}
+
+.welcome > h1 {
+  display: flex;
+  text-transform: uppercase;
+  color: white;
+  margin-left: 0.4em;
+  align-items: center;
+  font-size: 18px;
+}
+
+.switch-channel {
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+  text-transform: capitalize;
+}
+
+.switch-channel > p {
+  text-transform: capitalize;
+  background-color: white;
+  padding: 0.5em;
+  font-weight: 700;
+  font-size: 18px;
+  color: #25d366;
+  border-radius: 8px;
+}
+
+.switch-channel > h1 {
+  color: white;
+  align-self: center;
+  font-size: 18px;
+  margin-right: 0.3rem;
+  white-space: nowrap;
+  margin-left: 0.5rem;
+}
+
+.switch-channel > h1:last-child {
+  margin-bottom: 3rem;
+}
+
+.about-user-div {
+  position: absolute;
+  width: 339px;
+  bottom: 0;
+  padding: 1em;
+  border-radius: 4px;
+  text-transform: capitalize;
+  display: flex;
+  margin-bottom: -0.8em;
+  margin-left: -1.2em;
+  background-color: rgb(11, 9, 12);
+  justify-content: space-between;
+}
+
+.about-user-div > h2 {
+  align-self: center;
+  margin-left: 1em;
+}
+
+.lastLetters {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 25px;
+  margin-top: 0.5rem;
+  text-transform: capitalize;
+}
+
+.about-user-div > div {
+  display: flex;
+}
+
+.about-user-div > div > h2 {
+  align-self: center;
+  margin-left: 1em;
+  font-size: 18px;
+  color: rgb(189, 189, 189);
+}
+
+.times {
+  display: none;
+  font-size: 20px;
+  background-color: black;
+  color: white;
+  border-radius: 8px;
+}
+
+.about-user-div > div > img {
+  width: 40px;
+  border-radius: 10px;
+}
+
+.description-section > h4 {
+  color: rgb(189, 189, 189);
+  display: block;
+  margin: 1em 0 2em 0;
+  line-height: 30px;
+}
+
+.Aside-members {
+  color: white;
+  margin-bottom: 1em;
+  text-transform: uppercase;
+  font-size: 20px;
+  text-align: center;
+  letter-spacing: 1.7px;
+}
+
+.down-icon {
+  color: white;
+  font-size: 20px;
+  font-weight: 900;
+  align-self: center;
+}
+
+@media screen and (max-width: 678px) {
+  .about-user-div {
+    position: relative;
+  }
+  .channel-main {
+    position: relative;
+    width: 94vw;
+  }
+  .times {
+    display: block;
+  }
+}
+@media screen and (max-width: 878px) {
+  .welcome > h1 {
+    font-size: 15px;
+  }
+  .switch-channel > h1 {
+    font-size: 15px;
+  }
+  .about-user-div > h2 {
+    font-size: 14px;
+  }
+  .about-user-div > div {
+    width: 30px;
+    height: 30px;
+  }
+  .lastLetters {
+    font-size: 12px;
+  }
+}/*# sourceMappingURL=ChannelPage.module.css.map */

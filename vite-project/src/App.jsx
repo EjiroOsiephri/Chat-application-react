@@ -19,6 +19,8 @@ function App() {
   const [imgSrc, setImgSrc] = useState("");
   const [channel, setNewChannel] = useState(false);
   const [getState, setState] = useState(null);
+  const [newChannel, setChannels] = useState(null);
+  const [overideWelcome, setOverideWelcome] = useState(false);
 
   const contextValue = {
     setUserChannel,
@@ -30,7 +32,11 @@ function App() {
     channel,
     setNewChannel,
     getState,
+    newChannel,
+    setChannels,
     setState,
+    setOverideWelcome,
+    overideWelcome,
   };
   return (
     <>

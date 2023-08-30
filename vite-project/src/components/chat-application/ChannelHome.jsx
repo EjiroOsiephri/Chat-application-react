@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import ChannelPage from "../chat-nav/ChannelPage";
 import "../../sass/ChannelHome.scss";
 import Welcome from "../../pages/Welcome";
+import NewChannel from "../../pages/NewChannel";
 import UserChannelPage from "../chat-nav/UserChannelPage";
 import AppWideContext from "../../context/AppWideContext";
 

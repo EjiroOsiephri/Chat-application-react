@@ -1,0 +1,127 @@
+.Signup-main {
+  width: 50%;
+  margin-inline: auto;
+  padding: 2em 1em 2em 1em;
+  text-align: center;
+  border: 2px solid #25d366;
+  border-radius: 24px;
+}
+
+img {
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.logo-div {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 0.8em;
+}
+
+.logo-div > img {
+  width: 100px;
+  border-radius: 50%;
+  margin-right: 0.4em;
+}
+
+.logo-div > h2 {
+  align-self: center;
+  color: #25d366;
+}
+
+.signup-text-section > h1 {
+  color: white;
+  font-size: 24px;
+  margin-bottom: 1em;
+}
+
+.signup-text-section > h2 {
+  color: white;
+  font-size: 17px;
+  margin-bottom: 0.5em;
+}
+
+.input-icon {
+  position: relative;
+  left: 28px;
+  top: 3px;
+  font-size: 1.2rem;
+  color: gray;
+}
+
+.input-container:first-child {
+  margin-top: 2em;
+}
+
+.input-container > input {
+  width: 90%;
+  height: 48px;
+  background: transparent;
+  margin-bottom: 0.6em;
+  color: #25d366;
+  border-radius: 8px;
+  border: 1px solid rgb(189, 189, 189);
+  padding-left: 32px;
+}
+
+.signinwithgoogle {
+  margin-top: 1em;
+  width: 50%;
+  margin-inline: auto;
+  display: flex;
+  border-radius: 10px;
+  background-color: #25d366;
+  padding: 0.4rem;
+}
+
+.signinwithgoogle > img {
+  width: 40px;
+  margin-left: 0.8rem;
+  border-radius: 2rem;
+  cursor: pointer;
+}
+
+.signinwithgoogle > p {
+  align-self: center;
+  margin-left: 0.8rem;
+  color: white;
+  cursor: pointer;
+}
+
+.signup-btn {
+  background-color: #25d366;
+  border: none;
+  color: white;
+  margin-top: 0.7rem;
+  width: 80%;
+  font-size: 18px;
+  height: 48px;
+  border-radius: 12px;
+}
+
+.login-section {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  color: white;
+}
+
+.login-section > div > a {
+  margin-left: 1em;
+  text-decoration: none;
+  color: #25d366;
+}
+
+.login-text {
+  color: white;
+}
+
+@media screen and (max-width: 675px) {
+  .Signup-main {
+    min-width: 300px;
+    width: 90%;
+  }
+  .signinwithgoogle {
+    width: 90%;
+  }
+}/*# sourceMappingURL=signup.module.css.map */

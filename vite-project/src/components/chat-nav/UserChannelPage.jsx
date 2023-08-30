@@ -17,8 +17,8 @@ const UserChannelPage = () => {
 
   const getData = async () => {
     try {
-      const chatIdentifier1 = `${displayName}_${ctx.userChannel.displayName}`;
-      const chatIdentifier2 = `${ctx.userChannel.displayName}_${displayName}`;
+      const chatIdentifier1 = `${displayName}_${ctx?.userChannel?.displayName}`;
+      const chatIdentifier2 = `${ctx?.userChannel?.displayName}_${displayName}`;
 
       const res1 = await fetch(
         `https://chat-application-bb1d8-default-rtdb.firebaseio.com/messages/${chatIdentifier1}.json`

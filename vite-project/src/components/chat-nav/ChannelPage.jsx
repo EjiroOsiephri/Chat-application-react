@@ -103,8 +103,6 @@ const ChannelPage = (props) => {
     appWideContext.setNewChannel((prevValue) => !prevValue);
   }
 
-  const [newChannel, setNewChannel] = useState(null);
-
   async function getNewChannelData() {
     const response = await fetch(
       `https://chat-application-bb1d8-default-rtdb.firebaseio.com/${displayName}_new.json`
@@ -118,12 +116,16 @@ const ChannelPage = (props) => {
         description: data[key].description,
       });
     }
-    setNewChannel(newChannelDataArray);
+    appWideContext?.setChannels(newChannelDataArray);
   }
 
   useEffect(() => {
     getNewChannelData();
   }, [getNewChannelData]);
+
+  const setNewChannelHandler = () => {
+    appWideContext?.setOverideWelcome(true);
+  };
 
   return (
     <>
@@ -156,9 +158,12 @@ const ChannelPage = (props) => {
           </div>
           {!props.welcome && (
             <aside>
-              {newChannel?.map((item) => {
+              {appWideContext?.newChannel?.map((item) => {
                 return (
-                  <div className={Classes["welcome"]}>
+                  <div
+                    onClick={setNewChannelHandler}
+                    className={Classes["welcome"]}
+                  >
                     <h2>NEW</h2>
                     <h1>{item.name}</h1>
                   </div>

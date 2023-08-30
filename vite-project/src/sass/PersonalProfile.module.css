@@ -1,0 +1,54 @@
+.personal-profile-main {
+  position: relative;
+  left: 100px;
+  bottom: 5em;
+  width: 192.04px;
+  padding: 15px;
+  z-index: 10;
+  border-radius: 12px;
+  background-color: rgb(37, 35, 41);
+}
+
+.tweeter {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 1.3em;
+  margin-top: 1em;
+  color: white;
+  cursor: pointer;
+}
+
+.tweeter > p {
+  margin-left: 0.3em;
+  white-space: nowrap;
+}
+
+.tweeter:hover {
+  border-radius: 8px;
+  background-color: rgb(60, 57, 63);
+  padding: 1em;
+}
+
+.profile-icon {
+  font-size: 21px;
+}
+
+.logout-section {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1em;
+  font-weight: 900;
+  color: rgb(235, 87, 87);
+  cursor: pointer;
+}
+
+.logout-section:hover {
+  padding: 1em;
+  background-color: rgb(60, 57, 63);
+  border-radius: 8px;
+}
+
+.logout-icon {
+  color: rgb(235, 87, 87);
+  font-size: 23px;
+}/*# sourceMappingURL=PersonalProfile.module.css.map */

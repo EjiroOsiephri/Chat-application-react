@@ -22,6 +22,7 @@ function App() {
   const [newChannel, setChannels] = useState(null);
   const [overideWelcome, setOverideWelcome] = useState(false);
   const [newChannelName, setNewChannelName] = useState("");
+  const [defaultChannel, setDefault] = useState(false);
 
   const contextValue = {
     setUserChannel,
@@ -40,6 +41,8 @@ function App() {
     setOverideWelcome,
     newChannelName,
     setNewChannelName,
+    defaultChannel,
+    setDefault,
   };
 
   const [inCall, setInCall] = useState(false);

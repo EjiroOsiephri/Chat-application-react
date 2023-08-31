@@ -9,6 +9,8 @@ import Person from "../../assets/person.png";
 import PersonalProfile from "../PersonalProfile";
 
 const ChannelPage = (props) => {
+  const newChannelName = localStorage.getItem("newChannelName");
+
   const ctx = useContext(AuthContext);
   const appWideContext = useContext(AppWideContext);
 
@@ -125,7 +127,8 @@ const ChannelPage = (props) => {
 
   const setNewChannelHandler = (name) => {
     appWideContext?.setOverideWelcome(true);
-    appWideContext?.setNewChannelName(name);
+    localStorage.setItem("newChannelName", name);
+    appWideContext?.setNewChannelName(newChannelName);
   };
 
   return (

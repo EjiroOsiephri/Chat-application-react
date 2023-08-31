@@ -45,8 +45,6 @@ const Modal = () => {
     ctx.setNewChannel(false);
   };
 
-  useEffect(() => {}, []);
-
   return (
     <div className={Styled.modal}>
       <div className={Styled.content}>

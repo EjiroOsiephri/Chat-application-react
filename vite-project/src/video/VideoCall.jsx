@@ -66,16 +66,12 @@ const VideoCall = (props) => {
   }, [channelName, ready, tracks]);
 
   return (
-    <main style={{ height: "100%" }}>
-      <div style={{ height: "95%" }}>
-        {start && tracks && <Video tracks={tracks} users={users} />}
-      </div>
-      <div style={{ height: "95%" }}>
-        {ready && tracks && (
-          <Controls tracks={tracks} setStart={setStart} setInCall={setInCall} />
-        )}
-      </div>
-    </main>
+    <div className="App">
+      {start || (tracks && <Video tracks={tracks} users={users} />)}
+      {ready && tracks && (
+        <Controls tracks={tracks} setStart={setStart} setInCall={setInCall} />
+      )}
+    </div>
   );
 };
 

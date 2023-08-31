@@ -68,11 +68,7 @@ function App() {
             <Route element={<SignUp />} path="/" />
             <Route
               element={
-                <div
-                  style={{
-                    height: "100%",
-                  }}
-                >
+                <div>
                   {inCall ? (
                     <VideoCall setInCall={setInCall} />
                   ) : (

@@ -1,11 +1,5 @@
 import { useClient } from "../components/Settings";
 import React, { useState } from "react";
-import MicIcon from "@mui/icons-material/Mic";
-import MicOffIcon from "@mui/icons-material/MicOff";
-import VideocamIcon from "@mui/icons-material/Videocam";
-import VideocamOffIcon from "@mui/icons-material/VideocamOff";
-import ExitToAppIcon from "@mui/icons-material/ExitToApp";
-import Grid from "@mui/material/Grid";
 
 export default function Controls(props) {
   const client = useClient();
@@ -36,30 +30,14 @@ export default function Controls(props) {
   };
 
   return (
-    <>
-      <button
-        variant="contained"
-        color={trackState.audio ? "primary" : "secondary"}
-        onClick={() => mute("audio")}
-      >
-        {trackState.audio ? <MicIcon /> : <MicOffIcon />}
-      </button>
-
-      <button
-        variant="contained"
-        color={trackState.video ? "primary" : "secondary"}
-        onClick={() => mute("video")}
-      >
-        {trackState.video ? <VideocamIcon /> : <VideocamOffIcon />}
-      </button>
-      <button
-        variant="contained"
-        color="default"
-        onClick={() => leaveChannel()}
-      >
-        Leave
-        <ExitToAppIcon />
-      </button>
-    </>
+    <div className="controls">
+      <p className={trackState.audio ? "on" : ""} onClick={() => mute("audio")}>
+        {trackState.audio ? "MuteAudio" : "UnmuteAudio"}
+      </p>
+      <p className={trackState.video ? "on" : ""} onClick={() => mute("video")}>
+        {trackState.video ? "MuteVideo" : "UnmuteVideo"}
+      </p>
+      {<p onClick={() => leaveChannel()}>Leave</p>}
+    </div>
   );
 }

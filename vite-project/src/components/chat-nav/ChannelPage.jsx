@@ -127,8 +127,7 @@ const ChannelPage = (props) => {
 
   const setNewChannelHandler = (name) => {
     appWideContext?.setOverideWelcome(true);
-    localStorage.setItem("newChannelName", name);
-    appWideContext?.setNewChannelName(newChannelName);
+    appWideContext?.setNewChannelName(name);
   };
 
   return (

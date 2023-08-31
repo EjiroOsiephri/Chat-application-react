@@ -8,18 +8,14 @@ import { FaBars, FaTimes } from "react-icons/fa";
 import AppWideContext from "../context/AppWideContext";
 import Person from "../assets/Person.png";
 
-const Welcome = (props) => {
+const NewChannel = (props) => {
   const AuthCtx = useContext(AppWideContext);
 
   return (
     <>
       <main className={Classes["new-channel-main"]}>
         <header className={Classes["new-header"]}>
-          <h1>
-            {AuthCtx.newChannelName
-              ? AuthCtx.newChannelName
-              : "Default Channel"}
-          </h1>
+          <h1>{AuthCtx.newChannelName}</h1>
         </header>
         <section></section>
         <div className={Classes["input-search"]}>
@@ -33,4 +29,4 @@ const Welcome = (props) => {
   );
 };
 
-export default Welcome;
+export default NewChannel;

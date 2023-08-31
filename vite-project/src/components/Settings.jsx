@@ -1,9 +1,4 @@
-import React from "react";
-import {
-  AgoraVideoPlayer,
-  createClient,
-  createMicrophoneAndCameraTracks,
-} from "agora-rtc-react";
+import { createClient, createMicrophoneAndCameraTracks } from "agora-rtc-react";
 
 const appId = "79ee237df8ca4b8ca3518529202eafbb";
 const token =

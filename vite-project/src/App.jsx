@@ -6,10 +6,10 @@ import AppWideContext from "./context/AppWideContext";
 import "./app.scss";
 import LoadingSpinner from "./components/LoadingSpinner";
 import Module from "./components/Modal";
-import VideoCall from "./video/VideoCall";
 const ChannelHome = React.lazy(() =>
   import("./components/chat-application/ChannelHome")
 );
+const VideoCall = React.lazy(() => import("./video/VideoCall"));
 
 function App() {
   const ctx = useContext(AuthContext);
@@ -23,6 +23,7 @@ function App() {
   const [overideWelcome, setOverideWelcome] = useState(false);
   const [newChannelName, setNewChannelName] = useState("");
   const [defaultChannel, setDefault] = useState(false);
+  const [inCall, setInCall] = useState(false);
 
   const contextValue = {
     setUserChannel,
@@ -43,15 +44,8 @@ function App() {
     setNewChannelName,
     defaultChannel,
     setDefault,
+    setInCall,
   };
-
-  const [inCall, setInCall] = useState(false);
-  const navigate = useNavigate();
-
-  function joinVideo() {
-    setInCall(true);
-    navigate("/call");
-  }
 
   return (
     <div
@@ -68,12 +62,8 @@ function App() {
             <Route element={<SignUp />} path="/" />
             <Route
               element={
-                <div>
-                  {inCall ? (
-                    <VideoCall setInCall={setInCall} />
-                  ) : (
-                    <button onClick={joinVideo}>Join</button>
-                  )}
+                <div style={{ height: "100%" }}>
+                  {inCall && <VideoCall setInCall={setInCall} />}
                 </div>
               }
               path="/call"

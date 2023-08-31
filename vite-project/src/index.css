@@ -6,7 +6,12 @@
   font-family: "Noto Sans Mono", monospace;
   letter-spacing: 1.3px;
 }
-
+body {
+  background: #252329;
+}
+#root {
+  height: 100vh;
+}
 .App {
   position: relative;
   display: grid;
@@ -74,9 +79,4 @@
   border-width: 1px;
   border-color: #38373a;
   border-style: solid;
-}
-body {
-  background-color: #f7f7f7;
-}
-@media screen and (max-width: 675px) {
 }

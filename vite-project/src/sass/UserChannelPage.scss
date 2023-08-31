@@ -113,6 +113,11 @@ h4 {
 .times {
   display: none;
 }
+.video-icon {
+  margin-right: 1em;
+  font-size: 24px;
+  cursor: pointer;
+}
 
 @media screen and (max-width: 678px) {
   .times {

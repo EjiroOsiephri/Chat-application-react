@@ -11,6 +11,8 @@ import Person from "../assets/Person.png";
 const NewChannel = (props) => {
   const AuthCtx = useContext(AppWideContext);
 
+  
+
   return (
     <>
       <main className={Classes["new-channel-main"]}>

@@ -2,9 +2,11 @@ import React, { useContext, useState, useEffect, useRef } from "react";
 import "../../sass/UserChannelPage.scss";
 import { BsSend } from "react-icons/bs";
 import { FaTimes } from "react-icons/fa";
+import { RiVideoAddFill } from "react-icons/ri";
 
 import AppWideContext from "../../context/AppWideContext";
 import AuthContext from "../../context/Auth-context";
+import { useNavigate } from "react-router-dom";
 
 const UserChannelPage = () => {
   const [channelInputValueArray, setChannelInputValueArray] = useState(null);
@@ -80,11 +82,19 @@ const UserChannelPage = () => {
   function hideNav() {
     ctx.setShowNav(true);
   }
+  const navigate = useNavigate();
+
+  const goToVideoPage = () => {
+    ctx.setInCall(true);
+    navigate("/call");
+  };
+
   return (
     <>
       <main className="userchannelpage-main">
         <header className="welcome-header">
           <p>{ctx?.userChannel?.displayName}</p>
+          <RiVideoAddFill onClick={goToVideoPage} className="video-icon" />
           <FaTimes onClick={hideNav} className="times"></FaTimes>
         </header>
         <section className="section-scroll grid-container">

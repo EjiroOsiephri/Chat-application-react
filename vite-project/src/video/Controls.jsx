@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import { useClient } from "../components/Settings";
 import React, { useState } from "react";
 
@@ -19,6 +20,7 @@ export default function Controls(props) {
       });
     }
   };
+  const navigate = useNavigate();
 
   const leaveChannel = async () => {
     await client.leave();
@@ -27,6 +29,7 @@ export default function Controls(props) {
     tracks[1].close();
     setStart(false);
     setInCall(false);
+    navigate("/channel");
   };
 
   return (

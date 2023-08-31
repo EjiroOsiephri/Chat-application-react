@@ -1,5 +1,7 @@
 import { AgoraVideoPlayer } from "agora-rtc-react";
+import Grid from "@mui/material/Grid";
 import { useState, useEffect } from "react";
+import Classes from "../sass/VideoCall.module.scss";
 
 export default function Video(props) {
   const { users, tracks } = props;
@@ -10,23 +12,27 @@ export default function Video(props) {
   }, [users, tracks]);
 
   return (
-    <>
-      <AgoraVideoPlayer
-        videoTrack={tracks[1]}
-        style={{ height: "100%", width: "100%" }}
-      />
+    <main style={{ height: "100%", backgroundColor: "black" }}>
+      <div className={Classes["allVideoDiv"]}>
+        <AgoraVideoPlayer
+          videoTrack={tracks[1]}
+          style={{ height: "100%", width: "100%" }}
+        />
+      </div>
       {users.length > 0 &&
         users.map((user) => {
           if (user.videoTrack) {
             return (
-              <AgoraVideoPlayer
-                videoTrack={user.videoTrack}
-                key={user.uid}
-                style={{ height: "100%", width: "100%" }}
-              />
+              <div>
+                <AgoraVideoPlayer
+                  videoTrack={user.videoTrack}
+                  key={user.uid}
+                  style={{ height: "100%", width: "100%" }}
+                />
+              </div>
             );
           } else return null;
         })}
-    </>
+    </main>
   );
 }

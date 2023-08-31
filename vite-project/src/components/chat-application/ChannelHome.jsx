@@ -25,10 +25,16 @@ const ChannelHome = () => {
         >
           <ChannelPage welcome={welcome} setWelcome={setWelcome} />
         </div>
-        {welcome ? (
-          <Welcome welcome={welcome} setWelcome={setWelcome} />
+        {ctx.overideWelcome ? (
+          <NewChannel />
         ) : (
-          <UserChannelPage />
+          <section>
+            {welcome ? (
+              <Welcome welcome={welcome} setWelcome={setWelcome} />
+            ) : (
+              <UserChannelPage />
+            )}
+          </section>
         )}
       </main>
     </>

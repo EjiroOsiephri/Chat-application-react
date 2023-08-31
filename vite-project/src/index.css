@@ -6,6 +6,9 @@
   font-family: "Noto Sans Mono", monospace;
   letter-spacing: 1.3px;
 }
+#root {
+  height: 100vh;
+}
 body {
   background-color: #252329;
 }

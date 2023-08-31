@@ -7,6 +7,7 @@ import {
 } from "../components/Settings";
 import Controls from "./Controls";
 import Video from "./AllVideo";
+import Classes from "../sass/VideoCall.module.scss";
 
 const VideoCall = (props) => {
   const { setInCall } = props;
@@ -65,14 +66,16 @@ const VideoCall = (props) => {
   }, [channelName, ready, tracks]);
 
   return (
-    <>
-      <div>
+    <main style={{ height: "100%" }}>
+      <div style={{ height: "95%" }}>
+        {start && tracks && <Video tracks={tracks} users={users} />}
+      </div>
+      <div style={{ height: "95%" }}>
         {ready && tracks && (
           <Controls tracks={tracks} setStart={setStart} setInCall={setInCall} />
         )}
       </div>
-      <div>{start && tracks && <Video tracks={tracks} users={users} />}</div>
-    </>
+    </main>
   );
 };
 

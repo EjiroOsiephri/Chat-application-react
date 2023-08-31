@@ -123,8 +123,9 @@ const ChannelPage = (props) => {
     getNewChannelData();
   }, [getNewChannelData]);
 
-  const setNewChannelHandler = () => {
+  const setNewChannelHandler = (name) => {
     appWideContext?.setOverideWelcome(true);
+    appWideContext?.setNewChannelName(name);
   };
 
   return (
@@ -161,7 +162,7 @@ const ChannelPage = (props) => {
               {appWideContext?.newChannel?.map((item) => {
                 return (
                   <div
-                    onClick={setNewChannelHandler}
+                    onClick={() => setNewChannelHandler(item.name)}
                     className={Classes["welcome"]}
                   >
                     <h2>NEW</h2>

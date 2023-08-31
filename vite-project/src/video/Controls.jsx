@@ -5,6 +5,7 @@ import MicOffIcon from "@mui/icons-material/MicOff";
 import VideocamIcon from "@mui/icons-material/Videocam";
 import VideocamOffIcon from "@mui/icons-material/VideocamOff";
 import ExitToAppIcon from "@mui/icons-material/ExitToApp";
+import Grid from "@mui/material/Grid";
 
 export default function Controls(props) {
   const client = useClient();
@@ -51,7 +52,6 @@ export default function Controls(props) {
       >
         {trackState.video ? <VideocamIcon /> : <VideocamOffIcon />}
       </button>
-
       <button
         variant="contained"
         color="default"

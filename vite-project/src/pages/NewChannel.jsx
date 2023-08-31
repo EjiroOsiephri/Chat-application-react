@@ -10,19 +10,14 @@ import Person from "../assets/Person.png";
 
 const Welcome = (props) => {
   const AuthCtx = useContext(AppWideContext);
-
+  console.log(AuthCtx.newChannelName);
   return (
     <>
       <main className={Classes["welcome-channel-main"]}>
         <header className={Classes["welcome-header"]}>
-          {AuthCtx?.newChannel?.map((item, index) => {
-            console.log(item);
-            return (
-              <div key={index} className={Classes["welcome"]}>
-                <h1>{item.name}</h1>
-              </div>
-            );
-          })}
+          <div className={Classes["welcome"]}>
+            <h1>{AuthCtx.newChannelName}</h1>
+          </div>
         </header>
         <section></section>
         {/* <div className={Classes["input-search"]}>

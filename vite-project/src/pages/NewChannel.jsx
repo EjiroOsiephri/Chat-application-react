@@ -11,15 +11,13 @@ import Person from "../assets/Person.png";
 const NewChannel = (props) => {
   const AuthCtx = useContext(AppWideContext);
 
-  
-
   return (
     <>
       <main className={Classes["new-channel-main"]}>
         <header className={Classes["new-header"]}>
           <h1>{AuthCtx.newChannelName}</h1>
         </header>
-        <section></section>
+        <section className={Classes["section-scroll"]}></section>
         <div className={Classes["input-search"]}>
           <textarea type="text" placeholder="Type a message here" />
           <div className={Classes["send-channel-div"]}>

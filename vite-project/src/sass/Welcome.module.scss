@@ -1,4 +1,6 @@
 .welcome-channel-main {
+  display: flex;
+  flex-direction: column;
   overflow-y: auto;
   height: 100vh;
   flex: 1;
@@ -84,6 +86,7 @@
   border-radius: 8px;
   background-color: rgba(47, 128, 237, 1);
 }
+
 .send-channel-message {
   display: flex;
   margin-inline: auto;
@@ -92,6 +95,10 @@
 }
 .showNav {
   display: none;
+}
+.section-scroll {
+  flex: 1;
+  overflow-y: auto;
 }
 
 @media screen and (max-width: 678px) {

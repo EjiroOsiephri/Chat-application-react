@@ -87,7 +87,7 @@ const Welcome = (props) => {
           </div>
           Welcome Channel
         </header>
-        <section>
+        <section className={Classes["section-scroll"]}>
           {welcomeData?.map((item, index) => {
             return (
               <aside className={Classes["welcome-comments"]} key={index}>

@@ -1,4 +1,6 @@
 .new-channel-main {
+  display: flex;
+  flex-direction: column;
   overflow-y: auto;
   height: 100vh;
   flex: 1;
@@ -19,4 +21,44 @@
 }
 .new-header > h1 {
   font-size: 20px;
+}
+.input-search {
+  display: flex;
+  justify-content: center;
+}
+.input-search > textarea {
+  position: sticky;
+  width: 100%;
+  border-radius: 8px;
+  background: rgba(60, 57, 63, 1);
+  border: none;
+  height: 53px;
+  padding-right: 1em;
+  margin-top: 2.7em;
+  color: white;
+  display: flex;
+  padding-top: 1em;
+  bottom: 60px;
+  padding-left: 0.5em;
+  align-items: center;
+  margin-left: 2.5em;
+}
+.send-channel-div {
+  position: relative;
+  top: 40px;
+  right: 45px;
+  width: 39.33667755126953px;
+  height: 39.33667755126953px;
+  border-radius: 8px;
+  background-color: rgba(47, 128, 237, 1);
+}
+.send-channel-message {
+  display: flex;
+  margin-inline: auto;
+  margin-top: 12px;
+  color: white;
+}
+.section-scroll {
+  flex: 1;
+  overflow-y: auto;
 }

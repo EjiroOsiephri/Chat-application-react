@@ -85,7 +85,7 @@ const Welcome = (props) => {
               className={Classes["bars"]}
             ></FaBars>
           </div>
-          Welcome Channel
+          Default Channel
         </header>
         <section className={Classes["section-scroll"]}>
           {welcomeData?.map((item, index) => {

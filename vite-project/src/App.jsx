@@ -6,6 +6,7 @@ import AppWideContext from "./context/AppWideContext";
 import "./app.scss";
 import LoadingSpinner from "./components/LoadingSpinner";
 import Module from "./components/Modal";
+import NewChannelContainer from "./pages/NewChannelContainer";
 const ChannelHome = React.lazy(() =>
   import("./components/chat-application/ChannelHome")
 );
@@ -60,6 +61,7 @@ function App() {
         >
           <Routes>
             <Route element={<SignUp />} path="/" />
+            <Route element={<NewChannelContainer />} path="/new" />
             <Route
               element={
                 <div style={{ height: "100%" }}>

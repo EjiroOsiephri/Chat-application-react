@@ -9,13 +9,11 @@ import AppWideContext from "../../context/AppWideContext";
 const ChannelHome = () => {
   const [welcome, setWelcome] = useState(true);
 
-  const [shouldRenderUserChannel, setShouldRenderUserChannel] = useState(false);
-
   const ctx = useContext(AppWideContext);
 
   useEffect(() => {
-    setShouldRenderUserChannel(true);
-  }, [ctx?.newChannelName, ctx?.userChannel?.displayName]);
+    setWelcome(true);
+  }, [ctx?.userChannel?.displayName]);
 
   return (
     <>
@@ -36,7 +34,7 @@ const ChannelHome = () => {
         ) : ctx?.userChannel?.displayName ? (
           <UserChannelPage />
         ) : (
-          <NewChannel />
+          <Welcome welcome={welcome} setWelcome={setWelcome} />
         )}
       </main>
     </>

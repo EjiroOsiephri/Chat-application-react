@@ -7,6 +7,7 @@ import { AiOutlineDown } from "react-icons/ai";
 import { FaTimes } from "react-icons/fa";
 import Person from "../../assets/person.png";
 import PersonalProfile from "../PersonalProfile";
+import { useNavigate } from "react-router-dom";
 
 const ChannelPage = (props) => {
   const newChannelName = localStorage.getItem("newChannelName");
@@ -67,9 +68,12 @@ const ChannelPage = (props) => {
     appWideContext.setShowNav(false);
   };
 
+  const navigate = useNavigate();
+
   const welcomePageHandler = () => {
     props.setWelcome(true);
     appWideContext.setShowNav(false);
+    navigate("/channel");
   };
 
   const sendData = async () => {
@@ -128,6 +132,7 @@ const ChannelPage = (props) => {
   const setNewChannelHandler = (name) => {
     appWideContext?.setOverideWelcome(true);
     appWideContext?.setNewChannelName(name);
+    navigate("/new");
   };
 
   return (
@@ -156,8 +161,8 @@ const ChannelPage = (props) => {
         )}
         <section className={Classes["channelDiv"]}>
           <div onClick={welcomePageHandler} className={Classes["welcome"]}>
-            <h2>W</h2>
-            <h1>Welcome channel</h1>
+            <h2>DC</h2>
+            <h1>Default channel</h1>
           </div>
           {!props.welcome && (
             <aside>

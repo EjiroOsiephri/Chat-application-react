@@ -10,8 +10,6 @@ import PersonalProfile from "../PersonalProfile";
 import { useNavigate } from "react-router-dom";
 
 const ChannelPage = (props) => {
-  const newChannelName = localStorage.getItem("newChannelName");
-
   const ctx = useContext(AuthContext);
   const appWideContext = useContext(AppWideContext);
 
@@ -128,12 +126,17 @@ const ChannelPage = (props) => {
   useEffect(() => {
     getNewChannelData();
   }, [getNewChannelData]);
+  const channelNameStored = localStorage.getItem("newChannel");
 
   const setNewChannelHandler = (name) => {
     appWideContext?.setOverideWelcome(true);
-    appWideContext?.setNewChannelName(name);
+    localStorage.setItem("newChannel", name);
     navigate("/new");
   };
+
+  useEffect(() => {
+    appWideContext?.setNewChannelName(channelNameStored);
+  }, [channelNameStored]);
 
   return (
     <>

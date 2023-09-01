@@ -5,6 +5,7 @@ import NewChannel from "./NewChannel";
 
 const NewChannelContainer = () => {
   const [welcome, setWelcome] = useState(true);
+
   return (
     <>
       <main className="channel-home">

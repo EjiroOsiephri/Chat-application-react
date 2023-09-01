@@ -166,9 +166,10 @@ const ChannelPage = (props) => {
           </div>
           {!props.welcome && (
             <aside>
-              {appWideContext?.newChannel?.map((item) => {
+              {appWideContext?.newChannel?.map((item, index) => {
                 return (
                   <div
+                    key={index}
                     onClick={() => setNewChannelHandler(item.name)}
                     className={Classes["welcome"]}
                   >

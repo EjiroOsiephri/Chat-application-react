@@ -62,3 +62,120 @@
   flex: 1;
   overflow-y: auto;
 }
+.welcome-comments {
+  display: flex;
+  margin-top: 4.5em;
+  margin-left: 1em;
+}
+.welcome-name-div {
+  display: grid;
+  margin-left: 0.6em;
+}
+
+.welcome-name-div > div {
+  display: flex;
+}
+.welcome-name-div > div > p:first-child {
+  color: #25d366;
+  font-size: 18px;
+  font-weight: 700;
+  margin-right: 0.6em;
+}
+.welcome-name-div > div > p:last-child {
+  font-size: 14px;
+  color: rgba(130, 130, 130, 1);
+  line-height: 20px;
+  margin-top: 0.18em;
+}
+.person-icon {
+  align-self: start;
+  margin-right: 0.6em;
+  border-radius: 20px;
+  width: 40px;
+  color: gray;
+}
+.welcome-name-div > h1 {
+  font-size: 18px;
+  color: rgba(224, 224, 224, 1);
+  margin-top: 0.8em;
+}
+.input-search {
+  display: flex;
+  justify-content: center;
+}
+.input-search > textarea {
+  position: sticky;
+  width: 100%;
+  border-radius: 8px;
+  background: rgba(60, 57, 63, 1);
+  border: none;
+  height: 53px;
+  padding-right: 1em;
+  margin-top: 2.7em;
+  color: white;
+  display: flex;
+  padding-top: 1em;
+  bottom: 60px;
+  padding-left: 0.5em;
+  align-items: center;
+  margin-left: 2.5em;
+}
+.send-channel-div {
+  position: relative;
+  top: 40px;
+  right: 45px;
+  width: 39.33667755126953px;
+  height: 39.33667755126953px;
+  border-radius: 8px;
+  background-color: rgba(47, 128, 237, 1);
+}
+
+.send-channel-message {
+  display: flex;
+  margin-inline: auto;
+  margin-top: 12px;
+  color: white;
+}
+.showNav {
+  display: none;
+}
+.section-scroll {
+  flex: 1;
+  overflow-y: auto;
+}
+
+@media screen and (max-width: 678px) {
+  .welcome-name-div > div {
+    display: flex;
+    flex-direction: column;
+  }
+  .welcome-name-div > h1 {
+    font-size: 15px;
+    margin-right: 15px;
+  }
+  .person-icon {
+    display: flex;
+    align-items: start;
+    font-size: 10px;
+    margin-top: 10px;
+  }
+  .welcome-comments {
+    margin-bottom: 2em;
+  }
+  .welcome-comments:last-child {
+    margin-bottom: 2em;
+  }
+  .send-channel-div {
+    top: 45px;
+  }
+  .showNav {
+    position: relative;
+    z-index: 20;
+    display: block;
+    margin-left: -10px;
+    margin-right: 0.6em;
+  }
+  .bars {
+    margin-right: 10px;
+  }
+}

@@ -10,6 +10,57 @@ import Person from "../assets/Person.png";
 
 const NewChannel = (props) => {
   const AuthCtx = useContext(AppWideContext);
+  const ctx = useContext(AuthContext);
+  const commentInputRef = useRef();
+  const date = new Date();
+  const currentDate = date.toDateString();
+  const [welcomeData, setWelcomeDataArray] = useState(null);
+
+  const getChannelMessage = async () => {
+    try {
+      const response = await fetch(
+        `https://chat-application-bb1d8-default-rtdb.firebaseio.com/channel/${AuthCtx.newChannelName}.json`
+      );
+      const data = await response.json();
+      console.log(data);
+
+      let welcomeDataArray = [];
+
+      for (const key in data) {
+        welcomeDataArray.push({
+          name: data[key].name,
+          comment: data[key].comment,
+        });
+      }
+      setWelcomeDataArray(welcomeDataArray);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    getChannelMessage();
+  }, [AuthCtx.newChannelName]);
+
+  const sendNewChannelMessage = async () => {
+    const commentValue = commentInputRef?.current?.value;
+    const displayName = ctx?.email?.split("@")[0];
+    if (commentValue.length === 0) {
+      return;
+    }
+    const response = await fetch(
+      `https://chat-application-bb1d8-default-rtdb.firebaseio.com/channel/${AuthCtx.newChannelName}.json`,
+      {
+        method: "POST",
+        body: JSON.stringify({
+          name: displayName,
+          comment: commentValue,
+        }),
+      }
+    );
+    console.log(response);
+    commentInputRef.current.value = "";
+  };
 
   return (
     <>
@@ -17,10 +68,40 @@ const NewChannel = (props) => {
         <header className={Classes["new-header"]}>
           <h1>{AuthCtx.newChannelName}</h1>
         </header>
-        <section className={Classes["section-scroll"]}></section>
+        <section className={Classes["section-scroll"]}>
+          {welcomeData?.map((item, index) => {
+            return (
+              <aside className={Classes["welcome-comments"]} key={index}>
+                {ctx.imgSrc ? (
+                  <img
+                    className={Classes["person-icon"]}
+                    src={ctx.imgSrc}
+                    alt=""
+                  />
+                ) : (
+                  <img className={Classes["person-icon"]} src={Person} alt="" />
+                )}
+                <div className={Classes["welcome-name-div"]}>
+                  <div>
+                    <p>{item.name}</p>
+                    <p>{currentDate}</p>
+                  </div>
+                  <h1>{item.comment}</h1>
+                </div>
+              </aside>
+            );
+          })}
+        </section>
         <div className={Classes["input-search"]}>
-          <textarea type="text" placeholder="Type a message here" />
-          <div className={Classes["send-channel-div"]}>
+          <textarea
+            ref={commentInputRef}
+            type="text"
+            placeholder="Type a message here"
+          />
+          <div
+            onClick={sendNewChannelMessage}
+            className={Classes["send-channel-div"]}
+          >
             <BsSend className={Classes["send-channel-message"]} />
           </div>
         </div>

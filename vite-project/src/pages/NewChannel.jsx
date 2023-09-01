@@ -1,14 +1,13 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { channelActions } from "../store/ChannelSlice";
 import AuthContext from "../context/Auth-context";
 import Classes from "../sass/NewChannel.module.scss";
-import { BsPersonCircle, BsSend } from "react-icons/bs";
-import { FaBars, FaTimes } from "react-icons/fa";
+import { BsSend } from "react-icons/bs";
+import { FaTimes } from "react-icons/fa";
 import AppWideContext from "../context/AppWideContext";
 import Person from "../assets/Person.png";
+import { useNavigate } from "react-router-dom";
 
-const NewChannel = (props) => {
+const NewChannel = () => {
   const AuthCtx = useContext(AppWideContext);
   const ctx = useContext(AuthContext);
   const commentInputRef = useRef();
@@ -60,12 +59,18 @@ const NewChannel = (props) => {
     console.log(response);
     commentInputRef.current.value = "";
   };
+  const navigate = useNavigate();
 
+  function hideNav() {
+    AuthCtx.setShowNav(true);
+    navigate("/channel");
+  }
   return (
     <>
       <main className={Classes["new-channel-main"]}>
         <header className={Classes["new-header"]}>
           <h1>{AuthCtx.newChannelName}</h1>
+          <FaTimes onClick={hideNav} className="times"></FaTimes>
         </header>
         <section className={Classes["section-scroll"]}>
           {welcomeData?.map((item, index) => {

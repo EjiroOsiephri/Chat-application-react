@@ -1,10 +1,28 @@
-import React from "react";
+import React, { useContext } from "react";
 import { BsPersonCircle } from "react-icons/bs";
 import { FaRetweet } from "react-icons/fa";
 import { TbLogout } from "react-icons/tb";
 import Classes from "../sass/PersonalProfile.module.scss";
+import AuthContext from "../context/Auth-context";
+import { useNavigate } from "react-router-dom";
+import { getAuth, signOut } from "firebase/auth";
 
 const PersonalProfile = () => {
+  const ctx = useContext(AuthContext);
+  const navigate = useNavigate();
+
+  function logout() {
+    const auth = getAuth();
+    signOut(auth)
+      .then(() => {
+        console.log("succesfully signed out");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+    ctx.logout();
+    navigate("/");
+  }
   return (
     <>
       <main className={Classes["personal-profile-main"]}>
@@ -20,7 +38,7 @@ const PersonalProfile = () => {
           <div>
             <hr />
           </div>
-          <div className={Classes["logout-section"]}>
+          <div onClick={logout} className={Classes["logout-section"]}>
             <TbLogout className={Classes["logout-icon"]} />
             <p>Logout</p>
           </div>

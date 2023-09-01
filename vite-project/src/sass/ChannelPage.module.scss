@@ -185,9 +185,13 @@
   .channel-main {
     position: relative;
     width: 94vw;
+    z-index: 5;
   }
   .times {
     display: block;
+    position: relative;
+    z-index: 20;
+    top: -22px;
   }
 }
 @media screen and (max-width: 878px) {

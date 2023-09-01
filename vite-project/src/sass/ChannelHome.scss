@@ -9,6 +9,7 @@
 
 @media screen and (max-width: 678px) {
   .channel-home > div {
-    display: none;
+    position: absolute;
+    left: -5600px;
   }
 }

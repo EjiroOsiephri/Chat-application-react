@@ -8,6 +8,7 @@ const AuthContext = React.createContext({
   emailValue: (token) => {},
   loginWithEmail: (token) => {},
   displayName: "",
+  logout: () => {},
   addUsers: () => {},
 });
 export default AuthContext;
@@ -46,6 +47,9 @@ export const AuthProvider = (props) => {
     setImgSrc(src);
     localStorage.setItem("src", src);
   }
+  function logout() {
+    localStorage.clear();
+  }
 
   const contextValue = {
     users,
@@ -57,6 +61,7 @@ export const AuthProvider = (props) => {
     imgSrc,
     emailValue,
     addUsers,
+    logout,
   };
 
   return (

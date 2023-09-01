@@ -100,11 +100,17 @@
   flex: 1;
   overflow-y: auto;
 }
+.spinner {
+  margin-inline: auto;
+}
 
 @media screen and (max-width: 678px) {
   .welcome-name-div > div {
     display: flex;
     flex-direction: column;
+  }
+  .spinner {
+    display: block;
   }
   .welcome-name-div > h1 {
     font-size: 15px;
@@ -124,6 +130,8 @@
   }
   .send-channel-div {
     top: 45px;
+  }
+  .spinner {
   }
   .showNav {
     position: relative;

@@ -6,6 +6,12 @@
   font-family: "Noto Sans Mono", monospace;
   letter-spacing: 1.3px;
 }
+.spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 body {
   background: #252329;
 }

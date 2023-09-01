@@ -23,6 +23,8 @@ const ChannelHome = () => {
             ctx.showNav
               ? {
                   display: "block",
+                  left: "0",
+                  transition: "opacity 1s ease-in-out",
                 }
               : {}
           }

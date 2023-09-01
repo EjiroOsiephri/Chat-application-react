@@ -12,6 +12,7 @@ import { useNavigate } from "react-router-dom";
 const ChannelPage = (props) => {
   const ctx = useContext(AuthContext);
   const appWideContext = useContext(AppWideContext);
+  const [filteredChannelText, setFilteredChannelText] = useState("");
 
   function getFirstLetters(name) {
     const words = name.split(" ");
@@ -138,6 +139,16 @@ const ChannelPage = (props) => {
     appWideContext?.setNewChannelName(channelNameStored);
   }, [channelNameStored]);
 
+  const [filteredChannels, setFilteredChannels] = useState([]);
+
+  const filterChannel = (e) => {
+    const filterText = e.target.value.toLowerCase();
+    const filtered = appWideContext?.newChannel?.filter((item) =>
+      item.name.toLowerCase().includes(filterText)
+    );
+    setFilteredChannels(filtered);
+  };
+
   return (
     <>
       <main className={Classes["channel-main"]}>
@@ -159,7 +170,7 @@ const ChannelPage = (props) => {
         {!props.welcome && (
           <div className={Classes["search"]}>
             <FaSearch className={Classes["search-logo"]} />
-            <input type="text" placeholder="Search" />
+            <input onChange={filterChannel} type="text" placeholder="Search" />
           </div>
         )}
         <section className={Classes["channelDiv"]}>
@@ -169,7 +180,10 @@ const ChannelPage = (props) => {
           </div>
           {!props.welcome && (
             <aside>
-              {appWideContext?.newChannel?.map((item, index) => {
+              {(filteredChannels.length > 0
+                ? filteredChannels
+                : appWideContext?.newChannel
+              )?.map((item, index) => {
                 return (
                   <div
                     key={index}

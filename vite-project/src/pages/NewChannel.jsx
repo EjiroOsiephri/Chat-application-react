@@ -22,7 +22,6 @@ const NewChannel = (props) => {
         `https://chat-application-bb1d8-default-rtdb.firebaseio.com/channel/${AuthCtx.newChannelName}.json`
       );
       const data = await response.json();
-      console.log(data);
 
       let welcomeDataArray = [];
 
@@ -40,7 +39,7 @@ const NewChannel = (props) => {
 
   useEffect(() => {
     getChannelMessage();
-  }, [AuthCtx.newChannelName]);
+  }, [getChannelMessage]);
 
   const sendNewChannelMessage = async () => {
     const commentValue = commentInputRef?.current?.value;

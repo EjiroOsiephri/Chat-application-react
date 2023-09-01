@@ -137,11 +137,11 @@ const SignUp = () => {
                 <p style={{ color: "red" }}>Password must be greater than 6</p>
               )}
             </div>
+            <button className={Classes["signup-btn"]}>Join us now</button>
             <div onClick={googleSignIn} className={Classes["signinwithgoogle"]}>
               <img src={google} alt="" />
               <p>Sign up with google</p>
             </div>
-            <button className={Classes["signup-btn"]}>Join us now</button>
           </form>
           <div className={Classes["login-section"]}>
             {showLogin ? (

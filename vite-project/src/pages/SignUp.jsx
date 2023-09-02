@@ -1,4 +1,4 @@
-import React, { useContext, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import Logo from "../assets/chat.png";
 import google from "../assets/google.png";
 import { FaEnvelope, FaLock } from "react-icons/fa";
@@ -69,7 +69,6 @@ const SignUp = () => {
         idToken: data.idToken,
         displayName: data.email.split("@")[0],
       });
-
       navigate("/channel");
     } catch (error) {
       console.log(error);
@@ -94,6 +93,11 @@ const SignUp = () => {
         console.log(error);
       });
   };
+  useEffect(() => {
+    if (authCtx.email) {
+      navigate("/channel");
+    }
+  }, []);
   return (
     <>
       <ToastContainer />

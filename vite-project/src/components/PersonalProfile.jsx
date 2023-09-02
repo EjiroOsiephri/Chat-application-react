@@ -21,6 +21,7 @@ const PersonalProfile = () => {
         console.log(error);
       });
     ctx.logout();
+    ctx.email = null;
     navigate("/");
   }
   return (

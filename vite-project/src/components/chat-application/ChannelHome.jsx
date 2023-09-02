@@ -11,10 +11,6 @@ const ChannelHome = () => {
 
   const ctx = useContext(AppWideContext);
 
-  useEffect(() => {
-    setWelcome(true);
-  }, [ctx?.userChannel?.displayName]);
-
   return (
     <>
       <main className="channel-home">

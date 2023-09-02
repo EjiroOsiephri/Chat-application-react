@@ -131,8 +131,7 @@
   .send-channel-div {
     top: 45px;
   }
-  .spinner {
-  }
+
   .showNav {
     position: relative;
     z-index: 20;
@@ -142,5 +141,10 @@
   }
   .bars {
     margin-right: 10px;
+  }
+}
+@media screen and (min-width: 679px) and (max-width: 790px) {
+  .welcome-name-div > div {
+    flex-direction: column;
   }
 }

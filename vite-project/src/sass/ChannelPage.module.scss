@@ -52,7 +52,6 @@
   padding-left: 38px;
   background: rgba(60, 57, 63, 1);
   border: none;
-  color: white;
   border-radius: 8px;
 }
 .search-logo {
@@ -114,10 +113,9 @@
 }
 .about-user-div {
   position: absolute;
-  width: 339px;
+  width: 335px;
   bottom: 0;
   padding: 1em;
-  border-radius: 4px;
   text-transform: capitalize;
   display: flex;
   margin-bottom: -0.8em;
@@ -179,13 +177,17 @@
   font-weight: 900;
   align-self: center;
 }
+.welcome:last-child {
+  margin-bottom: 3rem;
+}
 @media screen and (max-width: 678px) {
   .about-user-div {
-    position: relative;
+    position: fixed;
+    width: 100%;
   }
   .channel-main {
     position: relative;
-    width: 94vw;
+    width: 100vw;
     z-index: 5;
   }
   .times {

@@ -157,6 +157,9 @@ const ChannelPage = (props) => {
             style={{
               position: "absolute",
               top: "100px",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
               left: "-30px",
             }}
           >

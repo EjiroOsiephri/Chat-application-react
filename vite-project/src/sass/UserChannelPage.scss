@@ -25,19 +25,20 @@
 }
 .input-search > input {
   position: sticky;
-  width: 95%;
+  width: 100%;
   border-radius: 8px;
-  background: rgba(60, 57, 63, 1);
+  background-color: white;
+  opacity: 0.8;
+  color: black;
   border: none;
   height: 53px;
   padding-left: 1em;
+  margin: 0 12px;
   margin-top: 2.7em;
-  color: white;
   display: flex;
-  bottom: 0;
+  bottom: 40px;
   padding: 1em;
   align-items: center;
-  margin-left: 2.5em;
 }
 .section-scroll {
   flex: 1;
@@ -45,13 +46,13 @@
 }
 
 .send-channel-div {
-  position: relative;
-  top: 40px;
-  right: 45px;
+  position: absolute;
+  bottom: 8px;
   width: 39.33667755126953px;
   height: 39.33667755126953px;
   border-radius: 8px;
-  background-color: rgba(47, 128, 237, 1);
+  right: 16px;
+  background-color: #25d366;
 }
 .send-channel-message {
   display: flex;

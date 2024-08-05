@@ -152,6 +152,17 @@ const ChannelPage = (props) => {
   return (
     <>
       <main className={Classes["channel-main"]}>
+        {showProfile && (
+          <div
+            style={{
+              position: "absolute",
+              top: "100px",
+              left: "-30px",
+            }}
+          >
+            <PersonalProfile />
+          </div>
+        )}
         <nav className={Classes["channel-navigation"]}>
           {props.welcome ? (
             <div>
@@ -223,7 +234,7 @@ const ChannelPage = (props) => {
             </aside>
           )}
         </section>
-        {showProfile && <PersonalProfile />}
+
         <div className={Classes["user-login-info"]}>
           <div className={Classes["about-user-div"]}>
             <div>

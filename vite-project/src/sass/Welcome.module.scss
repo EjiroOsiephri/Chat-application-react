@@ -9,8 +9,8 @@
   width: 100%;
   position: fixed;
   height: 59.49px;
-  background-color: rgba(37, 35, 41, 1);
-  border-radius: 8px;
+  background-color: black;
+  opacity: 0.5;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   color: white;
   display: flex;
@@ -26,11 +26,16 @@
 }
 .welcome-name-div {
   display: grid;
+  position: relative;
+  z-index: -199;
   margin-left: 0.6em;
 }
 
 .welcome-name-div > div {
   display: flex;
+  background-color: white;
+  opacity: 0.6;
+  color: black;
 }
 .welcome-name-div > div > p:first-child {
   color: #25d366;
@@ -53,8 +58,10 @@
 }
 .welcome-name-div > h1 {
   font-size: 18px;
-  color: rgba(224, 224, 224, 1);
   margin-top: 0.8em;
+  background-color: white;
+  opacity: 0.6;
+  color: black;
 }
 .input-search {
   display: flex;
@@ -64,12 +71,13 @@
   position: sticky;
   width: 100%;
   border-radius: 8px;
-  background: rgba(60, 57, 63, 1);
+  background-color: white;
+  opacity: 0.8;
+  color: black;
   border: none;
   height: 53px;
   padding-right: 1em;
   margin-top: 2.7em;
-  color: white;
   display: flex;
   padding-top: 1em;
   bottom: 60px;
@@ -84,7 +92,7 @@
   width: 39.33667755126953px;
   height: 39.33667755126953px;
   border-radius: 8px;
-  background-color: rgba(47, 128, 237, 1);
+  background-color: #25d366;
 }
 
 .send-channel-message {

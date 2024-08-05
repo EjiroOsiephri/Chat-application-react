@@ -115,7 +115,7 @@ const UserChannelPage = () => {
         </section>
         <div className="input-search">
           <input
-            placeholder="Type a message here"
+            placeholder="Your message"
             ref={userChannelInputRef}
             type="text"
           />

@@ -100,7 +100,7 @@ const NewChannel = () => {
           <textarea
             ref={commentInputRef}
             type="text"
-            placeholder="Type a message here"
+            placeholder="Your message"
           />
           <div
             onClick={sendNewChannelMessage}

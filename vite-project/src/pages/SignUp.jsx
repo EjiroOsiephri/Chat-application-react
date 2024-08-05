@@ -8,6 +8,7 @@ import { Link, useNavigate } from "react-router-dom";
 import Classes from "../sass/signup.module.scss";
 import AuthContext from "../context/Auth-context";
 import { toast, ToastContainer } from "react-toastify";
+import IMG from "../assets/dl.beatsnoop.com-1722857517.jpg";
 import "react-toastify/dist/ReactToastify.css";
 import AppWideContext from "../context/AppWideContext";
 
@@ -100,68 +101,89 @@ const SignUp = () => {
   }, []);
   return (
     <>
-      <ToastContainer />
-      <main className={Classes["Signup-main"]}>
-        <div className={Classes["logo-div"]}>
-          <img src={Logo} alt="" />
-          <h2>EjiroChatHub</h2>
-        </div>
-        {showLogin ? (
-          <h2 className={Classes["login-text"]}>Login</h2>
-        ) : (
-          <div className={Classes["signup-text-section"]}>
-            <h1>Join thousands of users worldwide</h1>
-            <h2>
-              Simple, reliable, private messaging and calling for free*,
-              available all over the world. Never miss a moment with voice and
-              video calls. From a group call, to classmates ,to a quick call
-              with mom, feel like you’re in the same room with voice and video
-              calls.
-            </h2>
-          </div>
-        )}
-        <section className={Classes["form"]}>
-          <form onSubmit={handleSubmitHandler}>
-            <div className={Classes["input-container"]}>
-              <FaEnvelope className={Classes["input-icon"]} />
-              <input
-                ref={emailRef}
-                type="email"
-                placeholder="Enter your email"
-              />
+      <aside className={Classes["modifiedUIContainer"]}>
+        <ToastContainer />
+        <img src={IMG} alt="img" />
+        <main className={Classes["Signup-main"]}>
+          {showLogin ? (
+            <div className={Classes["logo-div"]}>
+              <h2
+                style={{
+                  marginBottom: "40px",
+                  textAlign: "center",
+                }}
+              >
+                LOGIN
+              </h2>
             </div>
-            <div className={Classes["input-container"]}>
-              <FaLock className={Classes["input-icon"]} />
-              <input
-                ref={passwordRef}
-                type="password"
-                placeholder="Enter your password"
-              />
-              {error && (
-                <p style={{ color: "red" }}>Password must be greater than 6</p>
+          ) : (
+            <div className={Classes["signup-text-section"]}>
+              <div className={Classes["logo-div"]}>
+                <h2>CREATE ACCOUNT</h2>
+              </div>
+              <h1>Join thousands of users worldwide</h1>
+              <h2>
+                Simple, reliable, private messaging and calling for free*,
+                available all over the world.
+              </h2>
+            </div>
+          )}
+          <section className={Classes["form"]}>
+            <form onSubmit={handleSubmitHandler}>
+              <label htmlFor="" className={Classes["label"]}>
+                Email*
+              </label>
+              <div className={Classes["input-container"]}>
+                <FaEnvelope className={Classes["input-icon"]} />
+                <input
+                  ref={emailRef}
+                  type="email"
+                  placeholder="Enter your email"
+                />
+              </div>
+              <label htmlFor="" className={Classes["label"]}>
+                Password*
+              </label>
+              <div className={Classes["input-container"]}>
+                <FaLock className={Classes["input-icon"]} />
+                <input
+                  ref={passwordRef}
+                  type="password"
+                  placeholder="Enter your password"
+                />
+                {error && (
+                  <p style={{ color: "red" }}>
+                    Password must be greater than 6
+                  </p>
+                )}
+              </div>
+              <button className={Classes["signup-btn"]}>Join us now</button>
+              <div
+                onClick={googleSignIn}
+                className={Classes["signinwithgoogle"]}
+              >
+                <img src={google} alt="" />
+                <p>Sign up with google</p>
+              </div>
+            </form>
+            <div className={Classes["login-section"]}>
+              {showLogin ? (
+                <div>
+                  <p>Don't have an account</p>
+                  <Link onClick={signUpStateHandler}>Sign up</Link>
+                </div>
+              ) : (
+                <div>
+                  <p>
+                    already have an account
+                    <Link onClick={loginStateHandler}>login</Link>
+                  </p>
+                </div>
               )}
             </div>
-            <button className={Classes["signup-btn"]}>Join us now</button>
-            <div onClick={googleSignIn} className={Classes["signinwithgoogle"]}>
-              <img src={google} alt="" />
-              <p>Sign up with google</p>
-            </div>
-          </form>
-          <div className={Classes["login-section"]}>
-            {showLogin ? (
-              <div>
-                <p>Don't have an account</p>
-                <Link onClick={signUpStateHandler}>Sign up</Link>
-              </div>
-            ) : (
-              <div>
-                <p>already have an account</p>
-                <Link onClick={loginStateHandler}>login</Link>
-              </div>
-            )}
-          </div>
-        </section>
-      </main>
+          </section>
+        </main>
+      </aside>
     </>
   );
 };

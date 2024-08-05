@@ -13,7 +13,10 @@
 }
 
 body {
-  background: #252329;
+  background-image: url("../src/assets/Text-Her-at-Night.webp");
+  background-repeat: no-repeat;
+  background-size: cover;
+  object-fit: cover;
 }
 #root {
   height: 100vh;

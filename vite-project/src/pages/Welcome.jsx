@@ -130,7 +130,7 @@ const Welcome = (props) => {
           <div className={Classes["input-search"]}>
             <textarea
               type="text"
-              placeholder="Type a message here"
+              placeholder="Your message."
               ref={commentInputRef}
             />
             <div

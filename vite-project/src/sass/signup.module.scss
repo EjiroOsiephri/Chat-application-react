@@ -1,9 +1,16 @@
+.modifiedUIContainer {
+  display: flex;
+  background-color: white;
+}
 .Signup-main {
   width: 50%;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   margin-inline: auto;
   padding: 2em 1em 2em 1em;
-  text-align: center;
-  border: 2px solid #25d366;
+
   border-radius: 24px;
 }
 img {
@@ -11,32 +18,35 @@ img {
 }
 .logo-div {
   display: flex;
-  justify-content: center;
   margin-bottom: 0.8em;
+}
+.logo-div > h2 {
+  text-align: left;
 }
 .logo-div > img {
   width: 100px;
   border-radius: 50%;
   margin-right: 0.4em;
 }
-.logo-div > h2 {
-  align-self: center;
-  color: #25d366;
-}
+
 .signup-text-section > h1 {
-  color: white;
   font-size: 24px;
+  opacity: 0.7;
   margin-bottom: 1em;
 }
 .signup-text-section > h2 {
-  color: white;
   font-size: 17px;
-  margin-bottom: 0.5em;
+  margin-bottom: 1.7em;
+  opacity: 0.3;
+}
+.form form label {
+  display: flex;
+  justify-content: flex-start;
 }
 .input-icon {
-  position: relative;
-  left: 28px;
-  top: 3px;
+  position: absolute;
+  margin-top: 22.9px;
+  margin-left: 0.5rem;
   font-size: 1.2rem;
   color: gray;
 }
@@ -44,22 +54,24 @@ img {
   margin-top: 2em;
 }
 .input-container > input {
-  width: 90%;
+  width: 100%;
   height: 48px;
   background: transparent;
   margin-bottom: 0.6em;
-  color: #25d366;
+  margin-top: 0.6em;
   border-radius: 8px;
   border: 1px solid rgba(189, 189, 189, 1);
   padding-left: 32px;
 }
 .signinwithgoogle {
   margin-top: 1em;
-  width: 50%;
+  width: 100%;
   margin-inline: auto;
   display: flex;
+  justify-content: center;
   border-radius: 10px;
-  background-color: #25d366;
+  background-color: transparent;
+  border: 1px solid black;
   padding: 0.4rem;
 }
 .signinwithgoogle > img {
@@ -70,37 +82,52 @@ img {
 }
 .signinwithgoogle > p {
   align-self: center;
+  text-align: center;
+  justify-content: center;
   margin-left: 0.8rem;
-  color: white;
   cursor: pointer;
 }
 .signup-btn {
-  background-color: #25d366;
+  background-color: black;
   border: none;
   color: white;
   margin-top: 0.7rem;
-  width: 80%;
+  width: 100%;
   font-size: 18px;
   height: 48px;
   border-radius: 12px;
 }
 .login-section {
-  margin-top: 1rem;
+  margin-top: 2rem;
   display: flex;
   justify-content: center;
-  color: white;
+  color: black;
 }
-.login-section > div > a {
-  margin-left: 1em;
-  text-decoration: none;
-  color: #25d366;
+.login-section p a {
+  margin-left: 0.5rem;
 }
-.login-text {
-  color: white;
+
+.input-container {
+  margin-bottom: 1.8rem;
 }
-@media screen and (max-width: 675px) {
+label {
+  font-weight: 700;
+}
+
+@media screen and (max-width: 1078px) {
+  .logo-div {
+    display: flex;
+    justify-content: center;
+  }
+  .logo-div > h2 {
+    text-align: center;
+  }
+  .modifiedUIContainer {
+    flex-direction: column;
+  }
   .Signup-main {
     min-width: 300px;
+    text-align: center;
     width: 90%;
   }
   .signinwithgoogle {

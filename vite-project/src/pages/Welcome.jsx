@@ -6,7 +6,7 @@ import Classes from "../sass/Welcome.module.scss";
 import { BsPersonCircle, BsSend } from "react-icons/bs";
 import { FaBars, FaTimes } from "react-icons/fa";
 import AppWideContext from "../context/AppWideContext";
-import Person from "../assets/Person.png";
+import Person from "../assets/person.png";
 import LoadingSpinner from "../components/LoadingSpinner";
 
 const Welcome = (props) => {

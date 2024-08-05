@@ -4,7 +4,7 @@ import Classes from "../sass/NewChannel.module.scss";
 import { BsSend } from "react-icons/bs";
 import { FaTimes } from "react-icons/fa";
 import AppWideContext from "../context/AppWideContext";
-import Person from "../assets/Person.png";
+import Person from "../assets/person.png";
 import { useNavigate } from "react-router-dom";
 
 const NewChannel = () => {

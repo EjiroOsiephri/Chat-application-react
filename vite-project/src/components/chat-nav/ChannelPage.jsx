@@ -155,12 +155,13 @@ const ChannelPage = (props) => {
         {showProfile && (
           <div
             style={{
-              position: "absolute",
-              top: "100px",
+              position: "fixed",
+              top: "35%",
+              left: "5%",
+              transform: "translate(-50%, -50%)",
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
-              left: "-30px",
             }}
           >
             <PersonalProfile />

@@ -6,6 +6,10 @@
   font-family: "Noto Sans Mono", monospace;
   letter-spacing: 1.3px;
 }
+button,
+a {
+  cursor: pointer;
+}
 .spinner {
   display: flex;
   justify-content: center;
